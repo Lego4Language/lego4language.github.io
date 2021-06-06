@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","width":"14.5em","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="数学中未解决的大问题">
+<meta property="og:url" content="https://lego4language.github.io/2021/03/17/数学中未解决的大问题/index.html">
+<meta property="og:site_name" content="NLP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】数学中未解决的大问题（头图）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】数学中未解决的大问题（01）.png">
+<meta property="og:updated_time" content="2021-05-28T14:05:43.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数学中未解决的大问题">
+<meta name="twitter:image" content="https://lego4language.github.io/DIY/picture/【博文】数学中未解决的大问题（头图）.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://lego4language.github.io/2021/03/17/数学中未解决的大问题/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>数学中未解决的大问题 | NLP</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  
+    
+  
+
+  <!-- 彩带特效 -->
+  
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo" style="margin-left: 0px">
+    
+      <div class="site-meta-headline">
+        <a href="https://lego4language.gitee.io/">
+          <img class="custom-logo-image" src="/images/logo.png" alt="NLP"/>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <p id="nav-toggle-up">—— 物语先生</p>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-博客">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />博客</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-行业">
+    <a href="/Menu-Industry/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />行业</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-规划">
+    <a href="/Menu-Plan/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-crosshairs"></i> <br />规划</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-问题">
+    <a href="/Menu-Question/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />问题</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/Menu-About/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-github"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/Menu-Category/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-资源">
+    <a href="/Menu-Source/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-skype"></i> <br />资源</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-足迹">
+    <a href="/Menu-Log/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-paw"></i> <br />足迹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-趣文">
+    <a href="/Menu-InterestingPaper/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-cube"></i> <br />趣文</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-建站">
+    <a href="/Menu-Web/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-power-off"></i> <br />建站</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/Menu-Tag/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-地图">
+    <a href="/Menu-Map/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-总结">
+    <a href="/Menu-Summary/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-hourglass"></i> <br />总结</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-生活">
+    <a href="/Menu-Life/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />生活</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+                  <!-- 这是添加的submenu目录 2019-09-25-->
+                  <link href="/css/submenu/submenu.css" rel="stylesheet" type="text/css" />
+                  <ul id="nav">
+                      <li id="first"><a class="hsubs" href="#">《 学科 》</a>
+                          <ul class="first">
+                              <li><a href="/SubMenu-Subject-Math/"><p id="smallest">数学</p></a></li>
+                              <li><a href="/SubMenu-Subject-Vision/"><p id="smallest">视觉</p></a></li>
+                              <li><a href="/SubMenu-Subject-CS/"><p id="smallest">计算机</p></a></li>
+                              <li><a href="/SubMenu-Subject-Speech/"><p id="smallest">语音</p></a></li>
+                              <li><a href="/SubMenu-Subject-Cognitive/"><p id="smallest">认知学</p></a></li>
+                              <li><a href="/SubMenu-Subject-TextMining/"><p id="smallest">文本挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subject-Philosophy/"><p id="smallest">哲学</p></a></li>
+                              <li><a href="/SubMenu-Subject-InformationRetrieval/"><p id="smallest"></p>信息检索</a></li>
+                              <li><a href="/SubMenu-Subject-Psychology/"><p id="smallest">心理学</p></a></li>
+                              <li><a href="/SubMenu-Subject-RecommendedSystem/"><p id="smallest">推荐系统</p></a></li>
+                              <li><a href="/SubMenu-Subject-Linguistic/"><p id="smallest">语言学</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="second"><a class="hsubs" href="#">《 框架 》</a>
+                          <ul class="second">
+                              <li><a href="/SubMenu-Frame-MachineLearning/"><p id="smallest">机器学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-DeepLearning/"><p id="smallest">深度学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GNN/"><p id="smallest">图神经网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-TransferLearning/"><p id="smallest">迁移学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ReinforcementLearning/"><p id="smallest">强化学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GAN/"><p id="smallest">对抗生成网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-MetaLearning/"><p id="smallest">元学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-WeeklySupervisedLearning/"><p id="smallest">弱监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-SelfSupervisedLearning/"><p id="smallest">自监督学习</p></a></li>
+                              <li><a href="/#"><p id="smallest">无监督学习</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="third"><a class="hsubs" href="#">《 分支 》</a>
+                          <ul class="third">
+                              <li><a href="/SubMenu-Subdomain-FeatureEngineering/"><p id="smallest">特征工程</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextProcessing/"><p id="smallest">文本预处理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-RepresentationLearning"><p id="smallest">表示学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-PreTraining/"><p id="smallest">预训练</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-LanguageModel/"><p id="smallest">语言模型</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Segmentation/"><p id="smallest">分词</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-POS/"><p id="smallest">词性标注</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-NER/"><p id="smallest">命名实体识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextErrorCorrection"><p id="smallest">文本纠错</p></a></li>
+                              <li><a href="#"><p id="smallest">语句改写</p></a></li>
+                              <li><a href="#"><p id="smallest">语种识别</p></a></li>
+                              <li><a href="#"><p id="smallest">关键词提取</p></a></li>
+                              <li><a href="#"><p id="smallest">敏感词过滤</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-DependencyParse/"><p id="smallest">依存分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ConstituencyParse/"><p id="smallest">成分解析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SentimentAnalysis/"><p id="smallest">情感分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-IntentRecognition/"><p id="smallest">意图识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SemanticParsing/"><p id="smallest">语义分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-CoReferenceResolution/"><p id="smallest">指代消解</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextClassification/"><p id="smallest">文本分类</p></a></li>
+                              <li><a href="#"><p id="smallest">文本聚类</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextMatch/"><p id="smallest">文本匹配</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLG/"><p id="smallest">文本生成</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Summarization/"><p id="smallest">文本摘要</p></a></li>
+                              <li><a href="#"><p id="smallest">文本蕴含</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-IE/"><p id="smallest">信息抽取</p></a></li>       
+                              <li><a href="#"><p id="smallest">风格转换</p></a></li>  
+                              <li><a href="#"><p id="smallest">观点挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-MultitaskLearning/"><p id="smallest">多任务学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ReadingComprehension"><p id="smallest">阅读理解</p></a></li>
+                              <li><a href="#"><p id="smallest">繁简转化</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLI/"><p id="smallest">自然语言推理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-QA/"><p id="smallest">问答系统</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TaskBot/"><p id="smallest">任务型对话</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ChatBot/"><p id="smallest">闲聊系统</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ML/"><p id="smallest">机器翻译</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="forth"><a class="hsubs" href="#">《 主题 》</i></a>
+                          <ul class="forth">
+                            <li><a href="/SubMenu-Theme-Knowledge/"><p id="smallest">知识 + </p></a></li>
+                            <li><a href="/SubMenu-Theme-Multimodals/"><p id="smallest">多模态</p></a></li>
+                            <li><a href="/SubMenu-Theme-Explainable/"><p id="smallest">可解释性</p></a></li>
+                            <li><a href="/SubMenu-Theme-ZeroShot/"><p id="smallest">零资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-FewShot/"><p id="smallest">低资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-RichSource/"><p id="smallest">高资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-Cause/"><p id="smallest">因果逻辑</p></a></li>
+                            <li><a href="/SubMenu-Theme-ModelCompression/"><p id="smallest">模型压缩与加速</p></a></li>
+                            <li><a href="/SubMenu-Theme-DataAugmentation/"><p id="smallest">数据增强</p></a></li>
+                            <li><a href="/SubMenu-Theme-SourceandEvaluation/"><p id="smallest">资源和评估</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="fifth"><a class="hsubs" href="#">《 领域 》</a>
+                          <ul class="fifth">
+                            <li><a href="#"><p id="smallest">教育</p></a></li>
+                            <li><a href="#"><p id="smallest">金融</p></a></li>
+                            <li><a href="#"><p id="smallest">电商</p></a></li>
+                            <li><a href="#"><p id="smallest">IT</p></a></li>
+                          </ul>
+                      </li>
+                      <div id="lavalamp"><img src="/images/lavalamp.png"></div>
+                  </ul>
+                  <!--submenu目录结束-->
+      </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lego4language.github.io/2021/03/17/数学中未解决的大问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="0 丨 1">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NLP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">数学中未解决的大问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-17T00:00:00+08:00">2021-03-17</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-05-28 22:05:43" itemprop="dateModified" datetime="2021-05-28T22:05:43+08:00">2021-05-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/学科理解/" itemprop="url" rel="index"><span itemprop="name">学科理解</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">4.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">14 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><div style="width: 23%"><img src="/DIY/picture/【博文】数学中未解决的大问题（头图）.png" alt="link"></div></center>
+
+<a id="more"></a>
+<p>数学作为现代科学的根基被或深或浅地广泛应用于各行各业，普通人都或多或少地懂得基本的数学方法。然而<b>现代数学</b>却是一个令多数人望而却步的所在，人们对于其基本问题以及基本方法的了解程度远远低于其他科学，听说过“朗兰兹(Langlands)”的人远远少于听过“冷冻电镜”或者“弦论”的人。这篇文章将介绍现代数学，特别是算术几何中的一系列猜想，它们共同构成了一幅极其宏伟壮阔的蓝图，那是一代代学者的梦想所在。<br><br>现代数学的多数部分层层叠叠地建立在越来越远离日常经验的抽象体系上，仅仅去透过迷雾管中窥豹的一瞥也会受阻于层层门槛，为避免过份浅薄本文不可避免地将使用一系列术语。尽管如此，为了简洁，几乎所有的陈述都具有一定的模糊性，有时甚至故意的错误，精确的表述需要引进更多现代理论以及微妙的修正。<br><br>故事要从欧拉开始，欧拉考虑了函数：</p>
+<p>$$<br>\zeta(s)=\sum_{n=1}^{\infty} n^{-s}<br>$$</p>
+<p>并证明了其在 s = 2 点的值：</p>
+<p>$$<br>1+\frac{1}{2^{2}}+\frac{1}{3^{2}}+\ldots=\frac{\pi^{2}}{6}<br>$$</p>
+<p>之后黎曼在其著名的论文中提出这一函数满足：<br>①其具有表达式：</p>
+<p>$$<br>\sum_{n=1}^{\infty} \frac{1}{n^{s}}=\prod_{p \text { prime }} \frac{1}{1-p^{-s}}<br>$$</p>
+<p>②其在 1-s 和 s 的值具有对称性，满足一定函数方程；<br>③其非平凡零点分布在直线 Re(s)=1/2 上。<br><br>① 和 ② 很容易用初等方法证明，③ 则是著名的黎曼假设——作为数学中最具挑战的问题之一。这一函数，现在通常称之为黎曼$\zeta$函数(Riemann zeta function)，其实是某一类函数的特殊情形，我们称之为<b>L函数</b>，我们猜测它们都具有类似 ①、② 和 ③ 的性质，同时它们在特殊点的值有类似欧拉的表达式。这一模糊的表述看似初等，实质上深刻无比，它包含了美国克莱研究所于21世纪初提出的七个千禧年百万问题中的三个——贝赫和斯维讷通-戴尔猜想(BSD)，霍奇猜想(Hodge conjecture)和黎曼猜想(Riemann Hypothesis)，以及许多其他同样著名的猜想。这一表述的背后，隐藏了一系列无比宏伟的数学结构，这些结构帮助我们澄清并理解问题的涵义，同时提供了强有力的解决工具，对很多人来说它们比问题本身更加迷人。<br><br><b>大体上来说，我们有两种不同起源的 L 函数，我们称之为 Motivic L 函数和自守 L 函数。</b><br><br>我们先解释 <b>Motivic L 函数，它们起源于数论和代数几何</b>。代数数论的一个核心问题是求解整数系数的一元多项式方程，对于每一个素数p我们可以考虑模p的情形并得到有限域上的一元多项式方程，我们原则上可以很容易地求解，模p的解如何联系于整数解是一个数论的重要问题。高斯和欧拉发现的著名二次互反律(Law of Quadratic Reciprocity)即为此问题在一元二次多项式的特殊情形的解。<br><br>20世纪初的一个重要发现——类域论(Class field theory)，对于更大一类的一元多项式方程解决了这一问题。这一类方程并不是由多项式的次数限定的，而是取决于方程的内蕴对称性，更加精确地说，它的伽罗瓦群(Galois group)。<b>伽罗瓦在19世纪初的革命性工作首次引进了群论，并利用它来精确地度量多项式的对称性，我们第一次能够绕开繁琐的计算，用更深层次的抽象性质去处理表面更加具体的问题，它标志着现代代数的开端。</b>一元多项式的复杂性在于伽罗瓦群的复杂性，而类域论处理了交换伽罗瓦群的情形，非交换的情形要复杂的多，它是现代朗兰兹纲领(Langlands program)的一个重要目标。<br><br>对于每一个一元多项式我们可以定义L函数，它们通常叫做<b>戴德金$\zeta$函数(Dedekind zeta function)</b>，黎曼$\zeta$函数则是一元一次多项式的特殊情况。它们可以初等地证明满足 ① 和 ②。一个自然的推广是考虑多元多项式的情况，这里我们进入了代数几何的领域。多项式的零点定义了一个几何对象，我们称之为<b>代数簇(Algebraic variety)</b>，对于它们的研究我们通常称为代数几何。<br><br>代数几何作为一门古老的学科在20世纪经历了蔚为壮观的发展，20世纪初期意大利学派对代数曲面的研究有了长足的进展，然而其不严格的基础促使<b>奥斯卡·扎里斯基(Oscar Zariski)和 安德烈·韦伊(André Weil)重构了整个代数几何的基础</b>，韦伊更是指出了代数几何和数论与拓扑之间的惊人联系，之后亚历山大·格罗滕迪克(Alexander Grothendieck)为了理解韦伊的猜想更进一步用更抽象本质的方法重新构建了代数几何的基础并引进了一系列强大的工具，特别是他的上同调理论(cohomology)，最终导致了皮埃尔·德利涅(Pierre Deligne)完整证明了韦伊猜想并因此得到了菲尔兹奖。<br><br>我们要重点提<b>格罗滕迪克的上同调理论，其根植于代数拓扑</b>，格罗滕迪克同时构造了一系列上同调理论，它们具有非常类似的性质，但却起源于非常不同的构造，格罗滕迪克试图寻找出它们的共同本质并由此提出了Motive理论。这一理论并不完整，因为它基于一系列猜想，格罗滕迪克称之为标准猜想。如果标准猜想被证明，我们就能得到一套非常漂亮的理论，它导出了所有上同调，同时我们能证明一系列表面无关的问题。著名的百万问题之一霍奇猜想的重要性就在于它能导出标准猜想。<br><br>每一个Motivic L 函数都是由Motive给出的，对于这些函数，① 很容易验证，但是 ② 我们还无法证明一般情况， 一个已知例子是有理数上椭圆曲线的情形， 安德鲁·怀尔斯(Andrew Wiles)关于费马大定理的证明的一个推论(谷山-志村猜想，完整情形于01年由怀尔斯的几位学生证明)。对于几乎所有 L 函数③ 都是未知的，唯一的例外是Motive在有限域的情形，③ 即是德利涅所证明的韦伊猜想。<br><br>对于Motivic L 函数的特殊值的问题，我们需要Motive的一个推广，我们称之为<b>mixed motive</b>, 这是一个更加庞大但更加遥远的梦想，我们完全不知道如何构造它。它的存在能够推导出一系列及其漂亮的等式，推广欧拉对于黎曼$\zeta$的公式，著名的贝林森猜想(Beilinson conjecture)， 百万问题之一的BSD等都属此类。虽然我们无法构造mixed motive，却能够构造它的一个弱化变形，我们称之为导出范畴， 弗拉基米尔·沃埃沃德斯基(Vladimir Voevodsky)给出了这样一个构造从而获得了2002年的菲尔兹奖。<br><br><b>Motive是比 L 函数更本质的存在，但是我们很难直接计算它，替代的办法是考虑Motive的不同表达。</b>每一个Motive都能给出一系列伽罗瓦群的表示以及复几何中的霍奇结构，它们完全决定了 L 函数，因而考虑它们是更根本的问题。我们已经看到类域论解决了交换伽罗瓦群的情形，一个简单但却根本的想法是群的表示比群本身更加基本，因而我们需要考虑的不是伽罗瓦群本身，而是它的表示，这样所有的交换伽罗瓦群就等价于一维的伽罗瓦表示，而非交换的就等价于高维的表示。为了能够理解它们，我们必须考虑它们的内在对称性，令人惊讶的是，这些对称性很大程度上来源于一类完全不同的数学对象—–自守形式。<br><br><b>自守形式的起源可以追溯到19世纪，Klein和昂利·庞加莱(Henri Poincaré)是这一方向的先驱者。</b>然而如果我们再往前看，仔细阅读黎曼关于$\zeta$函数的性质 ②的证明，就会发现他实质上使用了一种非常特殊的自守形式的对称性，我们现在称之为权1/2的模形式。实际上几乎所有的已知的关于性质 ② (整体域上的L函数)的证明都使用了自守形式，我们猜测motivic L 函数都能从某类自守形式构造，这一大胆的猜测起源于志村五郎和谷山丰对于椭圆曲线的特殊情况，之后由朗兰兹推广到一般情况，亦即现代数学中如雷贯耳的朗兰兹纲领。<br><br>志村五郎的方法很大程度上是来源于代数几何，他从具体计算中看到了一些精致的特殊结构，他的方法太过具体以至于很难直接推广到一般情况。朗兰兹的洞见在于看出了这些结构背后的表示论内核，他系统将代数群的无穷维表示引进到数论中，找到了一个非常一般的全局性纲领，近五十年来它吸引了无数最杰出的学者。<br><br><b>通常认为朗兰兹纲领由两部分组成，第一部分称为互反猜想，它描述了数论与表示论的对应关系，最一般的猜测是Motive是等价于相当一部分自守形式的，特别的它指出伽罗瓦表示应该等价于代数群的表示，因而motivic L 函数等价于自守 L 函数。第二部分称之为函子性猜想，它描述了不同群之间的表示的联系。这一纲领意义深远，它可以对最一般的 L 函数证明②，并且导出一系列困难的猜想，如阿廷猜想。</b></p>
+<center><div style="width: 83%"><img src="/DIY/picture/【博文】数学中未解决的大问题（01）.png" alt="link"></div></center>
+
+<p>经过几十年的努力，我们对这一纲领的理解有了很大进展，杰出的代表性学者包括菲尔兹奖得主弗拉基米尔·德林费而德(Vladimir Drinfeld)，洛朗·拉福格(Laurent Lafforgue)和吴宝珠，不过距离完整的纲领仍然非常遥远。必须要提的是，朗兰兹纲领的范围还在不断扩展，类比经典的纲领，我们发展出了几何朗兰兹，p-adic朗兰兹，甚至物理上爱德华·威滕(Edward Witten)都提出了类似的朗兰兹对偶，它们牵涉到了非常不同的领域，使用非常不同的方法，但是它们都展现出了极深层次的相似性，从不同的角度丰富了纲领本身。一个最新的值得一提的进展来自彼得·舒尔茨(Peter Scholze)正在进行的工作，他利用由他发展的p-adic几何类比函数域的情形去证明局部数域的情形。<br><br>我们非常粗糙地回顾了一些现代数学，特别是算术几何领域的重要问题，从现在来看，几乎所有以上提到的猜想都还非常遥远(也许BSD是个例外)，每一个也许都足以耗尽一个人毕生精力，然而正是其困难和深刻吸引了无数人。某种程度上，数学家和探险家是一类人。</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+          <div id="end-text">
+    
+        <div style="text-align:center;">- - - <i class="fa fa-drupal"></i> <b>本文结束</b> - - -</div>
+    
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/16/现代数学各子领域关系的简单介绍/" rel="next" title="现代数学各子领域关系的简单介绍和学习建议">
+                <i class="fa fa-chevron-left"></i> 现代数学各子领域关系的简单介绍和学习建议
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/20/数学家名录/" rel="prev" title="Mathematicians">
+                Mathematicians <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+     <i class="fa fa-drupal"></i>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="0 丨 1" />
+            
+              <p class="site-author-name" itemprop="name">0 丨 1</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/Menu-Category/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/Menu-Tag/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="‹‹ 数丨语 ››">‹‹ 数丨语 ››</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="简 单，">简 单，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="执 拗，">执 拗，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="一 直 到 老 。">一 直 到 老 。</a>
+                  
+                </span>
+              
+            </div>
+          
+
+
+
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-apple"></i>
+                《 滴丨答 》
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/BV1N741177BJ?p=2" title="徒手攀岩" target="_blank">徒手攀岩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av4703308?from=search&seid=2865836903687886974" title="四弦人生" target="_blank">四弦人生</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep333948?theme=movie%3Ffrom%3Dsearch&seid=16732134441560039998" title="知无涯者" target="_blank">知无涯者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep340751?theme=movie%3Ffrom%3Dsearch&seid=960190305093062102" title="澄沙之味" target="_blank">澄沙之味</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av33429330?from=search&seid=15360553913887371012" title="发现的乐趣" target="_blank">发现的乐趣</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="有熊谷守一在的地方" target="_blank">有熊谷守一在的地方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-drupal"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0 丨 1</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">231k</span>
+  
+
+  
+</div>
+-->
+
+<!--
+-->
+
+<!--
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+-->
+
+<img class='footerpicture' src="/images/footer.png">
+
+<!--
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","width":"14.5em","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="keywords" content="Softmax,Logistics Regression">
+<meta property="og:type" content="article">
+<meta property="og:title" content="逻辑回归的延伸拓展">
+<meta property="og:url" content="https://lego4language.github.io/2019/08/27/逻辑回归的延伸拓展/index.html">
+<meta property="og:site_name" content="NLP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（头图）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（01）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（02）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（03）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归简单小结04.jpg">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（05）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（06）.png">
+<meta property="og:updated_time" content="2020-09-08T09:16:28.942Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="逻辑回归的延伸拓展">
+<meta name="twitter:image" content="https://lego4language.github.io/DIY/picture/【博文】逻辑回归的延伸拓展（头图）.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://lego4language.github.io/2019/08/27/逻辑回归的延伸拓展/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>逻辑回归的延伸拓展 | NLP</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  
+    
+  
+
+  <!-- 彩带特效 -->
+  
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo" style="margin-left: 0px">
+    
+      <div class="site-meta-headline">
+        <a href="https://lego4language.gitee.io/">
+          <img class="custom-logo-image" src="/images/logo.png" alt="NLP"/>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <p id="nav-toggle-up">—— 物语先生</p>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-博客">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />博客</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-行业">
+    <a href="/Menu-Industry/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />行业</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-规划">
+    <a href="/Menu-Plan/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-crosshairs"></i> <br />规划</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-问题">
+    <a href="/Menu-Question/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />问题</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/Menu-About/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-github"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/Menu-Category/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-资源">
+    <a href="/Menu-Source/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-skype"></i> <br />资源</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-足迹">
+    <a href="/Menu-Log/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-paw"></i> <br />足迹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-趣文">
+    <a href="/Menu-InterestingPaper/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-cube"></i> <br />趣文</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-建站">
+    <a href="/Menu-Web/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-power-off"></i> <br />建站</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/Menu-Tag/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-地图">
+    <a href="/Menu-Map/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-总结">
+    <a href="/Menu-Summary/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-hourglass"></i> <br />总结</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-生活">
+    <a href="/Menu-Life/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />生活</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+                  <!-- 这是添加的submenu目录 2019-09-25-->
+                  <link href="/css/submenu/submenu.css" rel="stylesheet" type="text/css" />
+                  <ul id="nav">
+                      <li id="first"><a class="hsubs" href="#">《 学科 》</a>
+                          <ul class="first">
+                              <li><a href="/SubMenu-Subject-Math/"><p id="smallest">数学</p></a></li>
+                              <li><a href="/SubMenu-Subject-Vision/"><p id="smallest">视觉</p></a></li>
+                              <li><a href="/SubMenu-Subject-CS/"><p id="smallest">计算机</p></a></li>
+                              <li><a href="/SubMenu-Subject-Speech/"><p id="smallest">语音</p></a></li>
+                              <li><a href="/SubMenu-Subject-Cognitive/"><p id="smallest">认知学</p></a></li>
+                              <li><a href="/SubMenu-Subject-TextMining/"><p id="smallest">文本挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subject-Philosophy/"><p id="smallest">哲学</p></a></li>
+                              <li><a href="/SubMenu-Subject-InformationRetrieval/"><p id="smallest"></p>信息检索</a></li>
+                              <li><a href="/SubMenu-Subject-Psychology/"><p id="smallest">心理学</p></a></li>
+                              <li><a href="/SubMenu-Subject-RecommendedSystem/"><p id="smallest">推荐系统</p></a></li>
+                              <li><a href="/SubMenu-Subject-Linguistic/"><p id="smallest">语言学</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="second"><a class="hsubs" href="#">《 框架 》</a>
+                          <ul class="second">
+                              <li><a href="/SubMenu-Frame-MachineLearning/"><p id="smallest">机器学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-DeepLearning/"><p id="smallest">深度学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GNN/"><p id="smallest">图神经网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-TransferLearning/"><p id="smallest">迁移学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ReinforcementLearning/"><p id="smallest">强化学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GAN/"><p id="smallest">对抗生成网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-MetaLearning/"><p id="smallest">元学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-WeeklySupervisedLearning/"><p id="smallest">弱监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-SelfSupervisedLearning/"><p id="smallest">自监督学习</p></a></li>
+                              <li><a href="/#"><p id="smallest">无监督学习</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="third"><a class="hsubs" href="#">《 分支 》</a>
+                          <ul class="third">
+                              <li><a href="/SubMenu-Subdomain-FeatureEngineering/"><p id="smallest">特征工程</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextProcessing/"><p id="smallest">文本预处理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-RepresentationLearning"><p id="smallest">表示学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-PreTraining/"><p id="smallest">预训练</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-LanguageModel/"><p id="smallest">语言模型</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Segmentation/"><p id="smallest">分词</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-POS/"><p id="smallest">词性标注</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-NER/"><p id="smallest">命名实体识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextErrorCorrection"><p id="smallest">文本纠错</p></a></li>
+                              <li><a href="#"><p id="smallest">语句改写</p></a></li>
+                              <li><a href="#"><p id="smallest">语种识别</p></a></li>
+                              <li><a href="#"><p id="smallest">关键词提取</p></a></li>
+                              <li><a href="#"><p id="smallest">敏感词过滤</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-DependencyParse/"><p id="smallest">依存分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ConstituencyParse/"><p id="smallest">成分解析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SentimentAnalysis/"><p id="smallest">情感分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-IntentRecognition/"><p id="smallest">意图识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SemanticParsing/"><p id="smallest">语义分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-CoReferenceResolution/"><p id="smallest">指代消解</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextClassification/"><p id="smallest">文本分类</p></a></li>
+                              <li><a href="#"><p id="smallest">文本聚类</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextMatch/"><p id="smallest">文本匹配</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLG/"><p id="smallest">文本生成</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Summarization/"><p id="smallest">文本摘要</p></a></li>
+                              <li><a href="#"><p id="smallest">文本蕴含</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-IE/"><p id="smallest">信息抽取</p></a></li>       
+                              <li><a href="#"><p id="smallest">风格转换</p></a></li>  
+                              <li><a href="#"><p id="smallest">观点挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-MultitaskLearning/"><p id="smallest">多任务学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ReadingComprehension"><p id="smallest">阅读理解</p></a></li>
+                              <li><a href="#"><p id="smallest">繁简转化</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLI/"><p id="smallest">自然语言推理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-QA/"><p id="smallest">问答系统</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TaskBot/"><p id="smallest">任务型对话</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ChatBot/"><p id="smallest">闲聊系统</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ML/"><p id="smallest">机器翻译</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="forth"><a class="hsubs" href="#">《 主题 》</i></a>
+                          <ul class="forth">
+                            <li><a href="/SubMenu-Theme-Knowledge/"><p id="smallest">知识 + </p></a></li>
+                            <li><a href="/SubMenu-Theme-Multimodals/"><p id="smallest">多模态</p></a></li>
+                            <li><a href="/SubMenu-Theme-Explainable/"><p id="smallest">可解释性</p></a></li>
+                            <li><a href="/SubMenu-Theme-ZeroShot/"><p id="smallest">零资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-FewShot/"><p id="smallest">低资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-RichSource/"><p id="smallest">高资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-Cause/"><p id="smallest">因果逻辑</p></a></li>
+                            <li><a href="/SubMenu-Theme-ModelCompression/"><p id="smallest">模型压缩与加速</p></a></li>
+                            <li><a href="/SubMenu-Theme-DataAugmentation/"><p id="smallest">数据增强</p></a></li>
+                            <li><a href="/SubMenu-Theme-SourceandEvaluation/"><p id="smallest">资源和评估</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="fifth"><a class="hsubs" href="#">《 领域 》</a>
+                          <ul class="fifth">
+                            <li><a href="#"><p id="smallest">教育</p></a></li>
+                            <li><a href="#"><p id="smallest">金融</p></a></li>
+                            <li><a href="#"><p id="smallest">电商</p></a></li>
+                            <li><a href="#"><p id="smallest">IT</p></a></li>
+                          </ul>
+                      </li>
+                      <div id="lavalamp"><img src="/images/lavalamp.png"></div>
+                  </ul>
+                  <!--submenu目录结束-->
+      </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lego4language.github.io/2019/08/27/逻辑回归的延伸拓展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="0 丨 1">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NLP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">逻辑回归的延伸拓展
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-27 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-27T00:00:00+08:00">2019-08-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2020-09-08 17:16:28" itemprop="dateModified" datetime="2020-09-08T17:16:28+08:00">2020-09-08</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/算法模型/" itemprop="url" rel="index"><span itemprop="name">算法模型</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.9k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">13 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（头图）.png" alt="link"></p>
+<a id="more"></a>
+<h3 id="1-LR基本特点"><a href="#1-LR基本特点" class="headerlink" title="1. LR基本特点"></a>1. LR基本特点</h3><p>逻辑回归（LR,Logistic Regression）是传统机器学习中的一种分类模型，由于LR算法具有简单、高效、易于并行且在线学习（动态扩展）的特点，在工业界具有非常广泛的应用。</p>
+<p><br>逻辑回归强化路线：</p>
+<blockquote>
+<p>线性模型LR(没有考虑特征间的关联)——&gt;LR +多项式模型（特征组合，不适用于特征稀疏场景，泛化能力弱）——&gt;FM（适用于稀疏特征场景*，泛化能力强）——&gt;FFM【省去零值特征，提高FFM模型训练和预测的速度，这也是稀疏样本采用FFM的显著优势】</p>
+</blockquote>
+<p>在线学习算法：LR属于一种<b>在线学习算法</b>，可以利用新的数据对各个特征的权重进行更新，而不需要重新利用历史数据训练。</p>
+<p><br>实际开发中，一般针对该类任务首先都会构建一个基于LR的模型作为Baseline Model，实现快速上线，然后在此基础上结合后续业务与数据的演进，不断的优化改进！</p>
+<blockquote>
+<p>逻辑回归是假设数据服从Bernoulli分布，因此LR属于参数模型</p>
+</blockquote>
+<h3 id="2-LR如何解决线性不可分问题"><a href="#2-LR如何解决线性不可分问题" class="headerlink" title="2. LR如何解决线性不可分问题"></a>2. LR如何解决线性不可分问题</h3><p>逻辑回归本质上是一个线性模型，但是，这不意味着只有线性可分的数据能通过LR求解，实际上，我们可以通过2种方式帮助LR实现：</p>
+<ul>
+<li>利用特殊核函数，对特征进行变换：把低维空间转换到高维空间，而在低维空间不可分的数据，到高维空间中线性可分的几率会高一些；</li>
+<li>扩展LR算法，提出FM算法；</li>
+</ul>
+<h4 id="2-1-使用核函数（特征组合映射）"><a href="#2-1-使用核函数（特征组合映射）" class="headerlink" title="2.1 使用核函数（特征组合映射）"></a>2.1 使用核函数（特征组合映射）</h4><p>针对线性不可分的数据集，可以尝试对给定的两个feature做一个多项式特征的映射，例如：</p>
+<p>$$<br>\text { mapFeature }(x)=\left[\begin{array}{c}{1} \\ {x_{1}} \\ {x_{2}} \\ {x_{1}^{2}} \\ {x_{1} x_{2}} \\ {x_{2}^{2}} \\ {x_{1}^{3}} \\ {\cdots} \\ {x_{1} x_{2}^{5}} \\ {x_{2}^{6}}\end{array}\right]<br>$$</p>
+<p>下面两个图的对比说明了线性分类曲线和非线性分类曲线（通过特征映射）</p>
+<p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（01）.png" alt="link"></p>
+<p>左图是一个线性可分的数据集，右图在原始空间中线性不可分，但是利用核函数，对特征转换 $[x_1,x_2]=&gt;[x_1,x_2,x^2_1,x^2_2,x_1 x_2]$ 后的空间是线性可分的，对应的原始空间中分类边界为一条类椭圆曲线。</p>
+<p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（02）.png" alt="link"></p>
+<p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（03）.png" alt="link"></p>
+<p>在LR中，我们可以通过在基本线性回归模型的基础上引入交叉项，来实现非线性分类，如下：</p>
+<p>$$<br>\hat{y} :=w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n} w_{i j} x_{i} x_{j}<br>$$</p>
+<p>但是这种直接在交叉项$x_i x_j$的前面加上交叉项系数$w_{ij}$的方式在稀疏数据的情况下存在一个很大的缺陷，即在对于观察样本中未出现交互的特征分量，不能对相应的参数进行估计。即，<b>在数据稀疏性普遍存在的实际应用场景中，二次项参数的训练是很困难的。其原因是，每个参数$w_{ij}$的训练需要大量$x_i$和$x_j$都非零的样本；由于样本数据本来就比较稀疏，满足$x_i$和$x_j$都非零的样本将会非常少。训练样本的不足，很容易导致参数 $w_{ij}$ 不准确，最终将严重影响模型的性能。</b></p>
+<h5 id="2-1-1-为什么特征稀疏-——-one-hot编码带来的问题"><a href="#2-1-1-为什么特征稀疏-——-one-hot编码带来的问题" class="headerlink" title="2.1.1 为什么特征稀疏 —— one-hot编码带来的问题"></a>2.1.1 为什么特征稀疏 —— one-hot编码带来的问题</h5><p>在机器学习中，尤其是计算广告领域，特征并不总是数值型，很多时候是分类值，对于categorical feature，通常会采用one-hot encoding转换成数值型特征，转化过程会产生大量稀疏数据（如果不使用one-hot转换，那么必然使用整数进行序号替代，但是对整数进行权重训练，整数（即序号）越大的相当于变相增大了相应的特征权重从而造成了偏差）。</p>
+<p><img src="/DIY/picture/【博文】逻辑回归简单小结04.jpg" alt="link"></p>
+<p><b>可以这么理解：对于每一个特征，如果它有m个可能取值，那么经过one-hot encoding之后，就变成了m个二元特征，并且，这些特征互斥，每次只有一个激活，因此，数据会变得稀疏。</b></p>
+<blockquote>
+<p>one-hot编码带来的另一个问题是特征空间变大。同样以上面淘宝上的item为例，将item进行one-hot编码以后，样本空间有一个categorical变为了百万维的数值特征，特征空间一下子暴增一百万。所以大厂动不动上亿维度，就是这么来的。</p>
+</blockquote>
+<p>在工业界，很少直接将连续值（eg.年龄特征）作为逻辑回归模型的特征输入，而是将连续特征离散化为一系列0、1特征交给LR。</p>
+<h5 id="2-1-2-LR为什么要对连续数值特征进行离散化"><a href="#2-1-2-LR为什么要对连续数值特征进行离散化" class="headerlink" title="2.1.2 LR为什么要对连续数值特征进行离散化"></a>2.1.2 LR为什么要对连续数值特征进行离散化</h5><ul>
+<li>离散特征的增加和减少都很容易，易于模型的快速迭代；</li>
+<li>稀疏向量內积乘法速度快，计算结果方便存储，容易扩展；</li>
+<li>离散化后的特征对异常数据有很强的鲁棒性：比如一个特征是年龄 &gt; 30 是 1，否则 0。如果特征没有离散化，一个异常数据“年龄300岁”会给模型造成很大的干扰；</li>
+<li>逻辑回归属于广义线性模型，表达能力受限；单变量离散化为N个后，每个变量有单独的权重，相当于为模型引入了非线性，能够提升模型表达能力，加大拟合；</li>
+<li>离散化后可以进行特征交叉，由$M+N$个变量变为$M*N$个变量，进一步引入非线性，提升表达能力；</li>
+<li>特征离散化后，模型会更稳定，比如如果对用户年龄离散化，20-30作为一个区间，不会因为一个用户年龄增长了一岁就变成了一个完全不同的人。当然处于区间相邻处的样本会刚好相反，所以怎么划分区间是门学问；</li>
+<li>特征离散化以后，起到了简化逻辑回归模型的作用，降低了模型过拟合的风险；</li>
+</ul>
+<p><br>李沐曾经说过：<b id="em">模型是使用离散特征还是连续特征，其实是一个“海量离散特征+简单模型” 同 “少量连续特征+复杂模型”的权衡。既可以离散化用线性模型，也可以用连续特征加深度学习。就看是喜欢折腾特征还是折腾模型了。通常来说，前者容易，而且可以n个人一起并行做，有成功经验；后者目前看很赞，能走多远还须拭目以待。</b></p>
+<h4 id="2-2-使用FM模型"><a href="#2-2-使用FM模型" class="headerlink" title="2.2 使用FM模型"></a>2.2 使用FM模型</h4><p><b>因子分解机（Factorization Machine，FM）是对LR算法的扩展。FM模型是一种基于矩阵分解的机器学习模型，对于稀疏数据具有很好的学习能力；</b><br>对于因子分解机FM来说，最大的特点是对于稀疏的数据具有很好的学习能力。<br>FM解决了LR泛化能力弱的问题，其目标函数如下所示：</p>
+<p>$$<br>\hat{y}=w_{0}+\sum_{i=1}^{n} w_{i} x_{i}+\sum_{i=1}^{n-1} \sum_{j=i+1}^{n}\left\langle V_{i}, V_{j}\right\rangle x_{i} x_{j}<br>$$</p>
+<p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（05）.png" alt="link"></p>
+<p><img src="/DIY/picture/【博文】逻辑回归的延伸拓展（06）.png" alt="link"></p>
+<h3 id="3-LR与SVM的参照比较"><a href="#3-LR与SVM的参照比较" class="headerlink" title="3. LR与SVM的参照比较"></a>3. LR与SVM的参照比较</h3><h4 id="3-1-LR与SVM的联系与区别"><a href="#3-1-LR与SVM的联系与区别" class="headerlink" title="3.1 LR与SVM的联系与区别"></a>3.1 LR与SVM的联系与区别</h4><h5 id="3-1-1-联系"><a href="#3-1-1-联系" class="headerlink" title="3.1.1 联系"></a>3.1.1 联系</h5><ul>
+<li>LR和SVM都可以处理分类问题，且一般都用于处理线性二分类问题（在改进的情况下可以处理多分类问题）；</li>
+<li>两个方法都可以增加不同的正则化项，如l1、l2等等。所以在很多实验中，两种算法的结果是很接近的；</li>
+</ul>
+<h5 id="3-1-2-区别"><a href="#3-1-2-区别" class="headerlink" title="3.1.2 区别"></a>3.1.2 区别</h5><ul>
+<li>LR是参数模型[逻辑回归是假设y服从Bernoulli分布]，SVM是非参数模型，LR对异常值更敏感；</li>
+<li>从目标函数来看，区别在于逻辑回归采用的是logistical loss，SVM采用的是hinge loss，这两个损失函数的目的都是增加对分类影响较大的数据点的权重，减少与分类关系较小的数据点的权重；</li>
+<li>SVM的处理方法是只考虑support vectors，也就是和分类最相关的少数点，去学习分类器。而逻辑回归通过非线性映射，大大减小了离分类平面较远的点的权重，相对提升了与分类最相关的数据点的权重；</li>
+<li>逻辑回归相对来说模型更简单，好理解，特别是大规模线性分类时比较方便。而SVM的理解和优化相对来说复杂一些，SVM转化为对偶问题后,分类只需要计算与少数几个支持向量的距离,这个在进行复杂核函数计算时优势很明显,能够大大简化模型和计算；</li>
+<li>LR能做的svm能做，但可能在准确率上有问题，svm能做的logic有的做不了；</li>
+</ul>
+<p><br>模型复杂度：SVM支持核函数，可处理线性非线性问题;LR模型简单，训练速度快，适合处理线性问题;决策树容易过拟合，需要进行剪枝<br>损失函数：SVM hinge loss; LR L2正则化; adaboost 指数损失<br>数据敏感度：SVM添加容忍度对outlier不敏感，只关心支持向量，且需要先做归一化; LR对远点敏感<br>数据量：数据量大就用LR，数据量小且特征少就用SVM非线性核</p>
+<h4 id="3-2-如何选择LR与SVM"><a href="#3-2-如何选择LR与SVM" class="headerlink" title="3.2 如何选择LR与SVM"></a>3.2 如何选择LR与SVM</h4><ul>
+<li>如果Feature的数量很大，跟样本数量差不多，这时候选用LR或者是Linear Kernel的SVM；</li>
+<li>如果Feature的数量比较小，样本数量一般，不算大也不算小，选用SVM+Gaussian Kernel；</li>
+<li>如果Feature的数量比较小，而样本数量很多，需要手工添加一些feature变成第一种情况；</li>
+</ul>
+<h3 id="4-扩展"><a href="#4-扩展" class="headerlink" title="4. 扩展"></a>4. 扩展</h3><h4 id="4-1-什么是参数模型（LR）与非参数模型（SVM）"><a href="#4-1-什么是参数模型（LR）与非参数模型（SVM）" class="headerlink" title="4.1 什么是参数模型（LR）与非参数模型（SVM）"></a>4.1 什么是参数模型（LR）与非参数模型（SVM）</h4><p>在统计学中，参数模型通常假设总体（随机变量）服从某一个分布，该分布由一些参数确定（比如正太分布由均值和方差确定），在此基础上构建的模型称为参数模型；非参数模型对于总体的分布不做任何假设，只是知道总体是一个随机变量，其分布是存在的（分布中也可能存在参数），但是无法知道其分布的形式，更不知道分布的相关参数，只有在给定一些样本的条件下，能够依据非参数统计的方法进行推断。</p>
+<h3 id="5-ToDo"><a href="#5-ToDo" class="headerlink" title="5. ToDo"></a>5. ToDo</h3><ul>
+<li>FM的进一步研究；</li>
+</ul>
+<h3 id="6-参考"><a href="#6-参考" class="headerlink" title="6. 参考"></a>6. 参考</h3><ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzY0MzE4Mg==&amp;mid=2247485629&amp;idx=1&amp;sn=89aa6db372f29645528d047887af8e83&amp;chksm=e9d0187cdea7916aeb7c2aa6ac61eb9ae9beefc36509d7a661d22c0880ff809b84e375c40f9a&amp;scene=0&amp;xtrack=1&amp;key=df7108d42913cdbc8dc096e0de3d12acc199b2b7ee313c27f891e25d4303fb3cd10c420f4e13e90d8aa39afa5a12cdc4c1244abf972e6a011cf3d07a56ca865d12baa998b2be539d945b041ed131ae36&amp;ascene=14&amp;uin=MTkzNzg2MTUxNA%3D%3D&amp;devicetype=Windows+10&amp;version=62070158&amp;lang=zh_CN&amp;pass_ticket=k8MONWLqtmtQ%2FKlDsdc7dmqiZrLA5RzQEefWrGdLePu0IxMDt8%2FoF559ODiW20Yl" target="_blank" rel="noopener">万字干货|逻辑回归最详尽解释</a></li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+          <div id="end-text">
+    
+        <div style="text-align:center;">- - - <i class="fa fa-drupal"></i> <b>本文结束</b> - - -</div>
+    
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Softmax/" rel="tag"><i class="fa fa-tag"></i> Softmax</a>
+          
+            <a href="/tags/Logistics-Regression/" rel="tag"><i class="fa fa-tag"></i> Logistics Regression</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/24/Softmax求导详解/" rel="next" title="Softmax求导详解">
+                <i class="fa fa-chevron-left"></i> Softmax求导详解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/25/对Bug的认知与处理/" rel="prev" title="对Bug的认知与处理（Debug）">
+                对Bug的认知与处理（Debug） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+     <i class="fa fa-drupal"></i>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="0 丨 1" />
+            
+              <p class="site-author-name" itemprop="name">0 丨 1</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/Menu-Category/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/Menu-Tag/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="‹‹ 数丨语 ››">‹‹ 数丨语 ››</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="简 单，">简 单，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="执 拗，">执 拗，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="一 直 到 老 。">一 直 到 老 。</a>
+                  
+                </span>
+              
+            </div>
+          
+
+
+
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-apple"></i>
+                《 滴丨答 》
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/BV1N741177BJ?p=2" title="徒手攀岩" target="_blank">徒手攀岩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av4703308?from=search&seid=2865836903687886974" title="四弦人生" target="_blank">四弦人生</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep333948?theme=movie%3Ffrom%3Dsearch&seid=16732134441560039998" title="知无涯者" target="_blank">知无涯者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep340751?theme=movie%3Ffrom%3Dsearch&seid=960190305093062102" title="澄沙之味" target="_blank">澄沙之味</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av33429330?from=search&seid=15360553913887371012" title="发现的乐趣" target="_blank">发现的乐趣</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="有熊谷守一在的地方" target="_blank">有熊谷守一在的地方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-LR基本特点"><span class="nav-text">1. LR基本特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LR如何解决线性不可分问题"><span class="nav-text">2. LR如何解决线性不可分问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-使用核函数（特征组合映射）"><span class="nav-text">2.1 使用核函数（特征组合映射）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-1-为什么特征稀疏-——-one-hot编码带来的问题"><span class="nav-text">2.1.1 为什么特征稀疏 —— one-hot编码带来的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-1-2-LR为什么要对连续数值特征进行离散化"><span class="nav-text">2.1.2 LR为什么要对连续数值特征进行离散化</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-使用FM模型"><span class="nav-text">2.2 使用FM模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-LR与SVM的参照比较"><span class="nav-text">3. LR与SVM的参照比较</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-LR与SVM的联系与区别"><span class="nav-text">3.1 LR与SVM的联系与区别</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-1-联系"><span class="nav-text">3.1.1 联系</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-2-区别"><span class="nav-text">3.1.2 区别</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-如何选择LR与SVM"><span class="nav-text">3.2 如何选择LR与SVM</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-扩展"><span class="nav-text">4. 扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-什么是参数模型（LR）与非参数模型（SVM）"><span class="nav-text">4.1 什么是参数模型（LR）与非参数模型（SVM）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-ToDo"><span class="nav-text">5. ToDo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-参考"><span class="nav-text">6. 参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-drupal"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0 丨 1</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">231k</span>
+  
+
+  
+</div>
+-->
+
+<!--
+-->
+
+<!--
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+-->
+
+<img class='footerpicture' src="/images/footer.png">
+
+<!--
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","width":"14.5em","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="description" content="1. 基类1.1 培养对NLP的兴趣：兴趣为自己提供了源源不断的动力，让人能更主动地去规划和学习，同时记忆力、专注度、理解力等等都会比被动学习更有效率；  先经历（哪怕是强迫着做），然后引起兴趣（正面激励），不知道自己的兴趣爱好在哪儿，其实很大程度上不是因为我们的兴趣太匮乏，而恰恰是因为经历匮乏、视野匮乏，少不经事才迷茫。兴趣的产生如下图所示： 学习新的未接触过的东西，比如新算法、模型等等知识。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="《 总结 》">
+<meta property="og:url" content="https://lego4language.github.io/Menu-Summary/index.html">
+<meta property="og:site_name" content="NLP">
+<meta property="og:description" content="1. 基类1.1 培养对NLP的兴趣：兴趣为自己提供了源源不断的动力，让人能更主动地去规划和学习，同时记忆力、专注度、理解力等等都会比被动学习更有效率；  先经历（哪怕是强迫着做），然后引起兴趣（正面激励），不知道自己的兴趣爱好在哪儿，其实很大程度上不是因为我们的兴趣太匮乏，而恰恰是因为经历匮乏、视野匮乏，少不经事才迷茫。兴趣的产生如下图所示： 学习新的未接触过的东西，比如新算法、模型等等知识。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【总结】毕加索的公牛（头图）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【总结】01.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【总结】02.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【总结】03.png">
+<meta property="og:updated_time" content="2020-11-24T13:11:51.447Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《 总结 》">
+<meta name="twitter:description" content="1. 基类1.1 培养对NLP的兴趣：兴趣为自己提供了源源不断的动力，让人能更主动地去规划和学习，同时记忆力、专注度、理解力等等都会比被动学习更有效率；  先经历（哪怕是强迫着做），然后引起兴趣（正面激励），不知道自己的兴趣爱好在哪儿，其实很大程度上不是因为我们的兴趣太匮乏，而恰恰是因为经历匮乏、视野匮乏，少不经事才迷茫。兴趣的产生如下图所示： 学习新的未接触过的东西，比如新算法、模型等等知识。">
+<meta name="twitter:image" content="https://lego4language.github.io/DIY/picture/【总结】毕加索的公牛（头图）.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://lego4language.github.io/Menu-Summary/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《 总结 》 | NLP</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  
+    
+  
+
+  <!-- 彩带特效 -->
+  
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo" style="margin-left: 0px">
+    
+      <div class="site-meta-headline">
+        <a href="https://lego4language.gitee.io/">
+          <img class="custom-logo-image" src="/images/logo.png" alt="NLP"/>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <p id="nav-toggle-up">—— 物语先生</p>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-博客">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />博客</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-行业">
+    <a href="/Menu-Industry/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />行业</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-规划">
+    <a href="/Menu-Plan/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-crosshairs"></i> <br />规划</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-问题">
+    <a href="/Menu-Question/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />问题</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/Menu-About/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-github"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/Menu-Category/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-资源">
+    <a href="/Menu-Source/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-skype"></i> <br />资源</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-足迹">
+    <a href="/Menu-Log/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-paw"></i> <br />足迹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-趣文">
+    <a href="/Menu-InterestingPaper/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-cube"></i> <br />趣文</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-建站">
+    <a href="/Menu-Web/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-power-off"></i> <br />建站</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/Menu-Tag/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-地图">
+    <a href="/Menu-Map/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-总结 menu-item-active">
+    <a href="/Menu-Summary/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-hourglass"></i> <br />总结</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-生活">
+    <a href="/Menu-Life/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />生活</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+                  <!-- 这是添加的submenu目录 2019-09-25-->
+                  <link href="/css/submenu/submenu.css" rel="stylesheet" type="text/css" />
+                  <ul id="nav">
+                      <li id="first"><a class="hsubs" href="#">《 学科 》</a>
+                          <ul class="first">
+                              <li><a href="/SubMenu-Subject-Math/"><p id="smallest">数学</p></a></li>
+                              <li><a href="/SubMenu-Subject-Vision/"><p id="smallest">视觉</p></a></li>
+                              <li><a href="/SubMenu-Subject-CS/"><p id="smallest">计算机</p></a></li>
+                              <li><a href="/SubMenu-Subject-Speech/"><p id="smallest">语音</p></a></li>
+                              <li><a href="/SubMenu-Subject-Cognitive/"><p id="smallest">认知学</p></a></li>
+                              <li><a href="/SubMenu-Subject-TextMining/"><p id="smallest">文本挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subject-Philosophy/"><p id="smallest">哲学</p></a></li>
+                              <li><a href="/SubMenu-Subject-InformationRetrieval/"><p id="smallest"></p>信息检索</a></li>
+                              <li><a href="/SubMenu-Subject-Psychology/"><p id="smallest">心理学</p></a></li>
+                              <li><a href="/SubMenu-Subject-RecommendedSystem/"><p id="smallest">推荐系统</p></a></li>
+                              <li><a href="/SubMenu-Subject-Linguistic/"><p id="smallest">语言学</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="second"><a class="hsubs" href="#">《 框架 》</a>
+                          <ul class="second">
+                              <li><a href="/SubMenu-Frame-MachineLearning/"><p id="smallest">机器学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-DeepLearning/"><p id="smallest">深度学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GNN/"><p id="smallest">图神经网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-TransferLearning/"><p id="smallest">迁移学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ReinforcementLearning/"><p id="smallest">强化学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GAN/"><p id="smallest">对抗生成网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-MetaLearning/"><p id="smallest">元学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-WeeklySupervisedLearning/"><p id="smallest">弱监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-SelfSupervisedLearning/"><p id="smallest">自监督学习</p></a></li>
+                              <li><a href="/#"><p id="smallest">无监督学习</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="third"><a class="hsubs" href="#">《 分支 》</a>
+                          <ul class="third">
+                              <li><a href="/SubMenu-Subdomain-FeatureEngineering/"><p id="smallest">特征工程</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextProcessing/"><p id="smallest">文本预处理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-RepresentationLearning"><p id="smallest">表示学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-PreTraining/"><p id="smallest">预训练</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-LanguageModel/"><p id="smallest">语言模型</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Segmentation/"><p id="smallest">分词</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-POS/"><p id="smallest">词性标注</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-NER/"><p id="smallest">命名实体识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextErrorCorrection"><p id="smallest">文本纠错</p></a></li>
+                              <li><a href="#"><p id="smallest">语句改写</p></a></li>
+                              <li><a href="#"><p id="smallest">语种识别</p></a></li>
+                              <li><a href="#"><p id="smallest">关键词提取</p></a></li>
+                              <li><a href="#"><p id="smallest">敏感词过滤</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-DependencyParse/"><p id="smallest">依存分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ConstituencyParse/"><p id="smallest">成分解析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SentimentAnalysis/"><p id="smallest">情感分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-IntentRecognition/"><p id="smallest">意图识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SemanticParsing/"><p id="smallest">语义分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-CoReferenceResolution/"><p id="smallest">指代消解</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextClassification/"><p id="smallest">文本分类</p></a></li>
+                              <li><a href="#"><p id="smallest">文本聚类</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextMatch/"><p id="smallest">文本匹配</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLG/"><p id="smallest">文本生成</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Summarization/"><p id="smallest">文本摘要</p></a></li>
+                              <li><a href="#"><p id="smallest">文本蕴含</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-IE/"><p id="smallest">信息抽取</p></a></li>       
+                              <li><a href="#"><p id="smallest">风格转换</p></a></li>  
+                              <li><a href="#"><p id="smallest">观点挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-MultitaskLearning/"><p id="smallest">多任务学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ReadingComprehension"><p id="smallest">阅读理解</p></a></li>
+                              <li><a href="#"><p id="smallest">繁简转化</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLI/"><p id="smallest">自然语言推理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-QA/"><p id="smallest">问答系统</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TaskBot/"><p id="smallest">任务型对话</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ChatBot/"><p id="smallest">闲聊系统</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ML/"><p id="smallest">机器翻译</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="forth"><a class="hsubs" href="#">《 主题 》</i></a>
+                          <ul class="forth">
+                            <li><a href="/SubMenu-Theme-Knowledge/"><p id="smallest">知识 + </p></a></li>
+                            <li><a href="/SubMenu-Theme-Multimodals/"><p id="smallest">多模态</p></a></li>
+                            <li><a href="/SubMenu-Theme-Explainable/"><p id="smallest">可解释性</p></a></li>
+                            <li><a href="/SubMenu-Theme-ZeroShot/"><p id="smallest">零资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-FewShot/"><p id="smallest">低资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-RichSource/"><p id="smallest">高资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-Cause/"><p id="smallest">因果逻辑</p></a></li>
+                            <li><a href="/SubMenu-Theme-ModelCompression/"><p id="smallest">模型压缩与加速</p></a></li>
+                            <li><a href="/SubMenu-Theme-DataAugmentation/"><p id="smallest">数据增强</p></a></li>
+                            <li><a href="/SubMenu-Theme-SourceandEvaluation/"><p id="smallest">资源和评估</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="fifth"><a class="hsubs" href="#">《 领域 》</a>
+                          <ul class="fifth">
+                            <li><a href="#"><p id="smallest">教育</p></a></li>
+                            <li><a href="#"><p id="smallest">金融</p></a></li>
+                            <li><a href="#"><p id="smallest">电商</p></a></li>
+                            <li><a href="#"><p id="smallest">IT</p></a></li>
+                          </ul>
+                      </li>
+                      <div id="lavalamp"><img src="/images/lavalamp.png"></div>
+                  </ul>
+                  <!--submenu目录结束-->
+      </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">《 总结 》</h1>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p><img src="/DIY/picture/【总结】毕加索的公牛（头图）.png" alt="link"></p>
+<h2 id="1-基类"><a href="#1-基类" class="headerlink" title="1. 基类"></a>1. 基类</h2><h3 id="1-1-培养对NLP的兴趣："><a href="#1-1-培养对NLP的兴趣：" class="headerlink" title="1.1 培养对NLP的兴趣："></a>1.1 培养对NLP的兴趣：</h3><p>兴趣为自己提供了源源不断的动力，让人能更主动地去规划和学习，同时记忆力、专注度、理解力等等都会比被动学习更有效率；</p>
+<ul>
+<li>先经历（哪怕是强迫着做），然后引起兴趣（正面激励），不知道自己的兴趣爱好在哪儿，其实很大程度上不是因为我们的兴趣太匮乏，而恰恰是因为经历匮乏、视野匮乏，少不经事才迷茫。兴趣的产生如下图所示：<br><img src="/DIY/picture/【总结】01.png" alt="link"></li>
+<li>学习新的未接触过的东西，比如新算法、模型等等知识。兴趣的维持如下图所示：<br><img src="/DIY/picture/【总结】02.png" alt="link"></li>
+<li>编程实现一些<b id="em">有趣的应用</b>，用于实践；</li>
+<li>初体验非常重要：<ul>
+<li>找讲得好的老师（由浅入深地、通俗地、形象化地讲解）；</li>
+<li>好的教材（循序渐进式的难度，启发式的诱导）；</li>
+</ul>
+</li>
+<li>不要想花大力气面面俱到，专注于一点，太过宽泛的内容很容易东西兼顾不到，精力过于分散，到头来哪一点都没做好；</li>
+</ul>
+<h3 id="1-2-培养创造力"><a href="#1-2-培养创造力" class="headerlink" title="1.2 培养创造力"></a>1.2 培养创造力</h3><ul>
+<li>阅读其他相关领域的内容，比如：语言学、认知学、脑科学、生物学…，从这些领域与工作相结合获得创新的灵感；</li>
+<li>不要轻易相信任何理论和模型，毕竟没有完美的模型，特别要注意数学模型中的各种假设和成立前提，这往往就是模型的限制所在，要有质疑的态度，提出一个好的问题比解决一个问题更为重要；</li>
+</ul>
+<h3 id="1-3-时间管理"><a href="#1-3-时间管理" class="headerlink" title="1.3 时间管理"></a>1.3 时间管理</h3><ul>
+<li>分清哪些事情应该先做，哪些应该后做这个顺序，这个与自己的时间和精力管理能力有关，处理不好的话会导致精力和时间的大量浪费：<ul>
+<li>做事之前先思考这件事和待会儿要做的事哪个更为重要，然后再集中时间和精力做事；</li>
+<li>学一些时间管理上的技巧（彼得德鲁克）；</li>
+</ul>
+</li>
+<li>分清事情的重要性和急迫性：<ul>
+<li>急迫且重要；</li>
+<li>重要但不急迫；</li>
+<li>急迫但不重要；</li>
+<li>不急迫且不重要；</li>
+</ul>
+</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+<h2 id="2-性格类"><a href="#2-性格类" class="headerlink" title="2. 性格类"></a>2. 性格类</h2><ul>
+<li>缺乏挑战的精神</li>
+<li>习惯于躲在舒适区里，不敢踏出舒适区；</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+
+<h2 id="3-习惯类"><a href="#3-习惯类" class="headerlink" title="3. 习惯类"></a>3. 习惯类</h2><ul>
+<li>把好的习惯和时间规划固化下来，刻在生物钟里，形成自觉的行为习惯；</li>
+<li>严格的自律，不轻易改变原有计划；</li>
+<li>总想把线路规划好了再行动，但是受限于个人知识程度的影响总会有所偏差，所以规划得“差不多”（大的方向定确定）了就该行动了；</li>
+<li>执行力必须强烈：</li>
+<li>不要忽视积累的力量，再小的行为在时间轴上的延续也会最终有所体现；</li>
+<li>不要删除自己写的日志，有些东西从时间的线性特征上才体现得出来；</li>
+<li>比要求的做得更多，不仅仅满足于要求的内容；</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+
+<h2 id="4-工作类"><a href="#4-工作类" class="headerlink" title="4. 工作类"></a>4. 工作类</h2><ul>
+<li>实践是检验真理的唯一标准，在学习理论的时候，由于自己的知识限制或者作者的知识限制，对于知识点并不理解得很透彻，而实践一方面可以帮助自己去理解，另一方面也可以验证自己的理解；</li>
+<li>分清哪些模型需要自己实现，是实现全部环节还是部分内容，实现的目的是为了什么，哪些是只需要学会使用现成库或者软件的；<ul>
+<li>意义（1）：检验模型的效果，适合哪些环境，如何修改去适应新的项目；</li>
+<li>意义（2）：清楚实现细节以便更好的使用现成的软件，与已有的实现相对比，提高工程能力；</li>
+</ul>
+</li>
+<li>对于一时不能完全理解的知识点应该如何记录以便以后有时间来弄清楚；</li>
+<li>开阔自己的视野，提高对NLP行业的理解力，这样才能指引未来的方向<ul>
+<li>多看看著名学者的报告，比如刘挺、李航等人的（当前阶段英语能力和时间有限，不能更多的了解国外著名学者的报告等），这些报告能够高屋建瓴的帮助自己了解行业的现状和更高的视野，可以提高自己对这个行业的理解，更好地把控行业未来的发展方向；</li>
+<li>多与其他学者多交流；</li>
+<li>多参加像kaggle一样的比赛，这里面有实际的需求和数据，能够更加接近实际需求；</li>
+</ul>
+</li>
+<li>思考如何将新学到的东西融入到自己的知识体系中，思考新的知识点与自己知识体系中各个知识点的联系；</li>
+<li>注意各种资源的积累和分类整理，不要看过之后就忘了；</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+
+<h2 id="5-方式方法类"><a href="#5-方式方法类" class="headerlink" title="5. 方式方法类"></a>5. 方式方法类</h2><ul>
+<li>如何检验自己对模型和知识点的掌握程度？<ul>
+<li>编码实践；</li>
+<li>如何用自己的话以最简单精准的方式表达出来（费曼学习法）；<center><div style="width: 100%"><img src="/DIY/picture/【总结】03.png" alt="link"></div></center>
+
+</li>
+</ul>
+</li>
+</ul>
+<center><p id="picture">学习金字塔</p></center>
+
+<ul>
+<li>准备式学习方式，了解某个模型之前，先将其涉及的基础数学组件掌握，以便于学习模型的顺畅度和提高理解深度（《word2vec中的数学》就是一个很好的例子）；</li>
+<li>如何一次性掌握知识点，避免重复性学习（虽然有时候重复性学习是必要的，这里所说的是那些没有必要的）：<ul>
+<li>理解概念之后，用多个实例来反复练习，直到熟练掌握其本质为止；</li>
+</ul>
+</li>
+<li>基础的深入理解至关重要，打牢基础再前行是必要的，把基础从深层次的角度理解，例如EM的九层理解境界，会发现很多东西都是相通的，这种方式看起来慢，其实是快，快体现在将此知识点应用于其他项目或者理解其他涉及此知识点的模型的时候，但有必要分清哪些东西需要深层次的理解，哪些只需要浅层次的掌握就行了；</li>
+<li><b id="em">学习模型的三重境界</b><ul>
+<li>会使用：利用已知方法解决问题；<blockquote>
+<p>把模型当作一个黑箱，不关心里面如何运作，只要能把输入的数据映射成为需要的结果就行；</p>
+</blockquote>
+</li>
+<li>能看懂：理解已知方法的数学原理；<blockquote>
+<p>知道模型的基本原理和各个细节，能推导其相关的数学公式；</p>
+</blockquote>
+</li>
+<li>懂设计：根据问题特征开发新方法；<blockquote>
+<p>通过对问题的理解和对模型的内部掌握，根据问题特点对模型进行修改甚至重新设计使之能够适应新问题，从而解决问题；</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li>了解性地学习某些内容，视频的方式可能是最直接和最快的；</li>
+<li>以点带面式的学习，因为很多东西并没有成体系化的整理比较零散，只能靠时间上的积累；</li>
+<li>搜集优秀的网站、博主网址，学习别人从更深刻或者更本质、新颖的角度理解事物；</li>
+<li><a href="https://www.zhihu.com/question/46301335" target="_blank" rel="noopener">你实践中学到的最重要的机器学习经验是什么？</a></li>
+<li><div><div class="fold_hider"><div class="close hider_title">六千字干货文：到底要怎么去学习？</div></div><div class="fold">
+<div id="fold">1. 不要完美主义！<br>我们不应该过度着眼于我们还不够完美。<br>学习不是要么 0 分，要么 100 分的。80 分是收获；60 分是收获；20 分也是收获。有收获最重要。但是因为着眼于自己的不完美，最终放弃了，那就是彻底的 0 分了。仔细想，这种“完美主义害死人”的例子特别多。我看到过很多同学，其实是在学习的路上，被自己的“完美主义”逼得“放弃了”——由于学习中有一点没有做好，遭受到了一点点挫折，最终就放弃了整个学习计划。每个人都一定要接受自己的不完美。想开一点：我们都不是小升初考了满分，才能上初中的；也不是中考考了满分，才能读高中的；更不是高考考了满分，才能念大学的；将来也不会是大学所有科目都是满分，才能出来工作。不完美其实是常态，根本不会影响我们学习更多更深入的内容。但是在自学过程中，很多同学却要求自己在自己制定的每一步计划中都达到“完美”，才进行下一步。最终结果，通常都是“放弃”：（可能有的同学会跳出来反驳我：学习当然要认真啊！在这里，我必须强调，我所说的“不要完美主义”，和“学习认真”是不冲突的。什么是“完美主义”，什么又是“囫囵吞枣”，这是一个“度”，每个人其实不一样。不要“完美主义”，不代表学习可以草率前行。每个人都必须要找到适合自己的学习节奏。我的经验是：在一些情况下，问自己一句：是不是自己又犯“完美主义”的毛病了：）<br><br>2.不要过度“学习路径依赖”，学习要冲着自己的目标去<br>什么意思？就是现在信息太发达了，对于大多数领域的知识，网上会有很多所谓的“学习路径”。我不是说这些学习路径没有用，但是不能“过度”依赖这些所谓的学习路径。比如，很多同学想学机器学习，大多数学习路径都会告诉你，机器学习需要数学基础。于是，很多同学就转而学习数学去了，非要先把数学学好再去学机器学习。可是发现数学怎么也学不好（在这里，可能完美主义的毛病又犯了），而机器学习却一点儿都没学。最终放弃了机器学习，非常可惜。其实，如果真正去接触机器学习，就会发现，至少在入门阶段，机器学习对数学的要求没有那么高。正因为如此，我一直建议：只要你在本科接触过高数，线数，概率这些科目的基础概念，想学机器学习，就去直接学习机器学习。学习过程中发现自己的数学不够用，再回头补数学。在这种情况下，数学学习得也更有目标性，其实效果更好。<br>类似这样的例子还有很多，很多同学想学习做 iOS app，就先去精通 Swift 语言，或者想做android app，就先去精通 java 语言。在我看来大可不必。以我的经验，只要你有一门编译型语言基础，大概看一下这些语言的基础语法，就可以直接上手 iOS 或者 android app 的开发了。先能做出一个最基本的 app，在这个过程中，就会意识到语言特性的意义，再回头深入研究语言也不迟。此时还能结合真实的开发任务去理解语言特性，比没有上手 app 开发，抽象地理解语言特性，有意义的多。虽然我一再强调对预算法的学习，语言不重要，但还是有很多同学表示，要先把 C++ 学透，再回来把课程中的算法学好。这是完全没必要的。事实上，在我的这两门课程中，我看到的收获最大的同学，是那些能够把课程中的算法思想理解清楚，然后用自己熟悉的语言去实现的同学：）依然是：不要“过度”学习路径依赖，什么叫“过度”，每个人的标准不一样。每个人都需要寻找自己的那个“度”。<br><br><br>3. 不要迷信权威的“好”教材<br>不是说权威教材不好，而是每一本教材都有其预设的读者群，如果你不在这个预设的读者群的范畴里，教材再好也没用。最简单的例子：再好的高数教材，对于小学生来说，都是一堆废纸。我经常举的一个例子是《算法导论》。我个人建议如果你是研究生或者博士生，已经有了一定的算法底子，才应该去阅读《算法导论》，我在我的课程的问答区，也谈过如何学习使用算法导论。但是对大多数本科同学，尤其是第一次接触算法的同学，《算法导论》实在不是一个好的教材。但很可惜，很多同学在学习中有上面的两个毛病，既过度路径依赖，别人说《算法导论》好，学习算法要走学《算法导论》这个路径，自己就不探索其他更适合自己的学习路径了，一头扎进《算法导论》里；同时还“完美主义”，对于《算法导论》的前几章，学习的事无巨细，但其实接触了很多在初学算法时没必要学习的内容。最后终于觉得自己学不下去了，放弃了对“算法”整个学科的学习。认为算法太难了。诚然，算法不容易，但是，一上来就抱着《算法导论》啃，实在是选择了一条完全没必要的，更难的，甚至可能是根本走不通的路。对于一个领域的学习，了解市面上有什么好的教材是必要的，单也不能迷信权威教材。每个人必须要去探索学习如何寻找适合自己的学习材料。<br><br>4. 不要看不起“薄薄”的“傻”教材，这些你看不起的学习材料，可能是你入门某个领域的关键<br>很多同学问我最初学习算法的是什么教材，我告诉他们是这本教材：《算法设计与分析基础》 。在这里，我完全没有推荐这本教材的意思。事实上，现在我有点儿“鄙视”这本教材。因为我在学习它的过程中，发现这本教材有很多错误（帮助它纠正错误其实也提高了我的水平：）当然，现在这本书的版本可能也和我当时学习的版本不同了，大部分错误应该已经纠正了。）但它确实是我的一本很重要的算法启蒙教材。关键原因是，它够薄。在大多数时候，如果有人问我教材推荐，基本上我的回答都是，如果是入门水平：随便找一本在京东，亚马逊，豆瓣上，评分不太差的“薄”的教材，就 ok 了。在这里，关键字是够“薄”。因为“薄”的教材能让你以最快的速度看完，对整个学科有一个全盘的认识：这个领域是做什么的？解决什么问题了？整体解决问题的思路是怎样？解决问题的方法大致是怎样划分的？一些最基础的方法具体是怎样的。这些在初学阶段是至关重要！是让你全盘把握整个领域脉络的。虽然通过这么一本薄薄的教材，你的脉络把握肯定不够全面细致，但比没有强太多！我看过不少同学，一上来学习《算法导论》，关于复杂度分析的笔记做了好几页，然后就放弃了，可是连什么是动态规划都不知道。这样完全没有对“算法”这个领域有全面的认识，甚至可以说根本没有学过“算法”！先用薄教材入门，再找“厚”教材，细细体会其中的细节，是我百试不爽的学习方法。另外，在这里，我还要强调“入门教材”，很多教材虽然够“薄”，但不是“入门教材”。大家要注意。<br><br><br>5. 不要迷信单一教材<br>很多同学理解了要找“薄”教材入门的道理，却还是非要我推荐一本具体的“薄”教材，说实话，很多时候这让我有点儿哭笑不得。因为我随便推荐一本，我确实不敢保证它是“最好的”，“最适合你的”，但是各个领域那么多教材，我又不可能都一一看过，一一比较过。最最重要的是，我的学习经验告诉我，在大多数情况下，学习不是一本固定教材可以搞定的。非要找到一本“最适合自己的”教材，然后就一头扎进去，其实是不科学的。我印象很深刻，我读本科的时候，那会儿申请了一个项目，要做一个网站（那时候服务端都用 ASP.NET ），我一口气从图书馆借了 10 本 ASP.NET 的教材，然后以一本最薄的书为主干去看，发现这本书介绍不清楚的概念，马上就从其他书里找答案。通常不同的作者对同一个事物从不同的角度做解读，是能够帮助你更深刻的认识一个概念的。基本上一个月的时间，我就从一个完全的网站搭建小白，做出了这个项目需要的那个网站。这个习惯我一直延续，研究生的时候，对什么领域感兴趣了，第一件事就是到图书馆，借十本相关书籍回来翻看。但是，大多数同学喜欢仅仅扎进一本书里，一旦选定了自己的学习材料，就对其他材料充耳不闻，甚至是排斥的心理。这种做法，一方面又是“完美主义”的表现——非要把这本教材学透；另一方面，其实也是“犯懒”的表现，不愿意多翻翻，多看看，自己多比较比较，自己去寻找最适合自己的材料，一味地盲目相信所谓“大神”的推荐，殊不知，这些推荐，不一定是更适合自己的材料；更何况，还有很多大神，明明是靠不出名的“薄”教材入的门，但给别人做推荐的时候，就突然变成自己是算法奇才，自幼阅读《算法导论》而所成的神话了：）<br><br>6. 实践<br>前面说了很多和教材选择相关的话题，但对于计算机领域的学习来说，教材的意义其实远远小于实践的意义。如果仅仅是看学习材料就是学习的话，那么慕课网的视频后期处理人员就是水平最高的工程师了。因为每段视频，他们都需要看一遍。但是，很显然，仅仅是看视频，是无法学到知识的。对于计算机领域的学习来说，真正动手实践去编程是异常重要的。怎么夸大其中的作用都不过分。这就好比学游泳，必须下水去游泳；或者学开车，必须亲自上路。否则你说的再头头是道，一个小学生文化水平的人，只要他开过车，游过泳，都能在这两个领域瞬间秒杀你。很多同学都说我的算法讲得好，其实，我一直认为，这其中的一个最简单的秘诀就是：我带领大家把大多数算法都非常细致的实现了一遍；或者对其中的应用进行了非常具体的实践。反观大多数高校教育，对于算法或者机器学习这种一定程度偏理论的学习，通常非常不强调实践。最终的结果是学习者只是接受了很多抽象的概念，但对其中具体的实现细节，却是云里雾里。我见过太多同学，都明白什么是 O(n^2) 复杂度，什么是 O(nlogn) 的复杂度，却问我对于 100 万的数据规模，为什么自己的选择排序运行起来就没反应了。答案很简单：O(n^2) 的复杂度太慢了，100 万的数据规模太大了，一般家用计算机转选择排序一时半会儿是转不完的。这些同学一定理解 O(n^2) 的算法比 O(nlogn) 的算法慢，却没有真正实践过，不知道这个差距到底是多少。在我的课程中，经常遇到有些同学提出这样的问题：这个算法的某句话（或者某段逻辑），为什么要写成 A 的样子，而不是 B 的样子？这种问题其实很好，但我觉得解决方法也很简单，实际的去把算法改写成 B 的样子，实际的运行试试看，看会发生什么。如果发生了错误，仔细分析一下，为什么会有错误？如果没有错误，具体比较一下：A和B两种不同的写法，为什么都正确？又有什么区别？真正的学习上的提高，就发生在这个过程中。我当然可以告诉给同学们一个结果，但是自己亲自实践一遍，相比阅读我给出的一个答案，自己对其中问题理解的深刻程度，是完全不可比拟的。<br><br>7. debug非常非常重要<br>我看到的另一类“经典”问题就是：老师，这个代码为什么错了，然后贴一大段代码。这种问题背后，依然是，透露着学习方法的不对劲：提问的同学懒得 debug 。在计算机领域，debug 近乎和实践是一个意思。如果只是把材料上的代码“抄”一遍，这不叫实践，这叫抄代码。小学生也能做。但是“抄”一遍，不小心没抄对，发生了错误，然后自己一点一点调试，找到错误的根源，这叫真的实践。小学生不能做。（当然，我更推崇的是：自己理解了算法的逻辑，按照自己的理解，把算法写出来：）不过很多同学不喜欢 debug，我当然理解。其实谁都不喜欢 debug ，但是，debug 才是最重要的能力。（通常在一个领域里，你最不喜欢做的事情，就是这个领域的核心竞争力：）是计算机领域异常重要的一项技能。我见过的所有计算机领域的“高手”，不管是在哪个细分领域，都无一例外，是个 debug 好手。我经常告诉大家，在实际工作中，其实 debug 的时间要占你真正编程时间的 70%。如果你做一个项目，根本不需要 debug ，要么是你的项目对你来说太简单了，要么是你根本没有接触到这个项目的核心。debug 不仅仅是找到代码错误，解决错误的手段，其实更是一个重要的学习手段。通过 debug，看看自己写的程序执行逻辑，哪里和自己设想的不一致？再回头看自己哪里想错了，或者想漏了，分析一下自己为什么想错了，或者想漏了，等等等等，依然是，进步就是发生在这个过程的。<br>在我的算法课程中，很多同学对递归想不明白，我的建议都是：用一个小数据量，一步步跟踪程序，看看程序到底是怎么运行的。通常这么做，1 个小时的时间，就足以让你深刻理解递归程序的运转逻辑。可是，很多同学懒得花这1个小时的时间，最终的结果是，花了一个下午，对着代码生看，硬想，最终还是没有理解程序的运转逻辑<br><br>8. 量变到质变<br>还有很多同学，对于算法的一些问题，会问：老师，你是怎么想到用这样的方法的？对于这类问题，我的回答一般都是：你见的还不够多。不知道是不是受高中阶段学习的影响，有一些同学特别执着于就着一个单一的问题，寻找其中的“解题路径”。当然，我不是说这是完全错误的，但也有一个“度”。我的经验是：与其把时间花在这里，不如去见更多问题。比如动态规划，是算法学习的一个难点，很多同学在学会了背包问题的解法之后，总是执着于去追寻：是怎么想到这种状态定义的方法的。可能是我个人水平有限，我无法清楚地解释是如何想到这种状态定义的方法的。但是我的经验告诉我：再去看，去实践 100 个动态规划相关的问题，然后回头看背包问题，你会发现这种状态定义的方式非常自然。仅仅对着一个问题思考，很多时候都是死胡同。你见识的还不够多，就不足以帮助你总结出更加“普遍”的问题解决的规律。当你见得足够多的时候，一切就都变得很自然，所谓的“量变到质变”。不过，大多数同学在这个环节都会“犯懒”，企图通过一个问题就理解问题的本质，这其实和企图通过一本教材就精通一个领域的想法是一样的，是不现实的，不可能的。同时，这里又包含着学习过程中的“完美主义”的思想，遇到一个问题一定要把它想的无比透彻。但是我的经验告诉我：大多数问题，其实都是需要“回头看”的。随着你对一个领域理解的越深入，回头再去看那些曾经的问题，都会产生新的视角，对于很多曾经想不明白的问题也豁然开朗。这也是“进步”的根源。如果卡在一个问题上不前进，不给自己“回头看”的机会，甚至最后是放弃了，就什么也没有学会了。所以，很多时候，你发现对一些问题“百思不得其解”，或许不是因为自己“笨”，而是因为“还不够努力”：）<br><br>9. 一定要相信时间的力量<br>有一天，在我的一个算法课程群里，有个滴滴的后端大神发招聘，结果大家七嘴八舌的就议论开了，大致主题思想就是：自己什么时候能够成为滴滴的后端大神。这位滴滴的后端大神今年 32 岁；大多数议论的同学，其实连 22 岁都不到。我告诉他们，其实 10 年后，你们就是大神。这其实很好理解，回想十年前，也就是 12 岁的你，和现在的你比较，是不是天壤之别？如果把你扔到一堆 12 岁的小朋友中间，22 岁的你是不是就是个大神？同理，32 岁的人，已经在业界摸爬滚打了那么多年，扔回到22岁的大学生中间，当然是大神：）很多时候，所谓的“大神”并不神秘，很多时候，仔细观察，会发现时间有着不可磨灭的作用。只要你没有虚度时间，每天都在进步，通常结果都不会太差的。如果再加上一点点机遇，可能就不仅仅是大神<br></div>
+</div></div>
+</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+
+<h2 id="6-客观条件类"><a href="#6-客观条件类" class="headerlink" title="6. 客观条件类"></a>6. 客观条件类</h2><ul>
+<li>提高对模型和知识的记忆力，这点需要特别强调，自己本身记忆力不是很好，但是要灵活处理遇到的各种困难，必须要记忆大量的模型、算法等等：<ul>
+<li>首先理解必须深刻；<ul>
+<li>多角度理解；</li>
+<li>深层次理解；</li>
+</ul>
+</li>
+<li>通过实践反复重现理论细节以增强记忆；</li>
+<li>时常复习；</li>
+<li>从营养学的角度出发要补充增强记忆力的食物；</li>
+<li>锻炼身体，增强身体活性，记忆力会好点；</li>
+</ul>
+</li>
+</ul>
+<p><br><br><br></p>
+<hr>
+
+
+<h2 id="7-感悟类"><a href="#7-感悟类" class="headerlink" title="7. 感悟类"></a>7. 感悟类</h2><ul>
+<li>针对自己学历不高的劣势如何弥补<ul>
+<li>比赛中取得好的名次也是证明自己能力的方式之一，在缺少学历优势的条件下这可能是比较有用的途径之一；</li>
+<li>与更多的学者进行交流，扩大知名度；</li>
+</ul>
+</li>
+<li>学会如何表达自己的意见和见解很重要，一方面流畅地表达现了自己对这个领域的思路是否清晰，另一方面能促使别人来一起研究增加实现的可能性；</li>
+</ul>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+     <i class="fa fa-drupal"></i>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="0 丨 1" />
+            
+              <p class="site-author-name" itemprop="name">0 丨 1</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/Menu-Category/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/Menu-Tag/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="‹‹ 数丨语 ››">‹‹ 数丨语 ››</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="简 单，">简 单，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="执 拗，">执 拗，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="一 直 到 老 。">一 直 到 老 。</a>
+                  
+                </span>
+              
+            </div>
+          
+
+
+
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-apple"></i>
+                《 滴丨答 》
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/BV1N741177BJ?p=2" title="徒手攀岩" target="_blank">徒手攀岩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av4703308?from=search&seid=2865836903687886974" title="四弦人生" target="_blank">四弦人生</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep333948?theme=movie%3Ffrom%3Dsearch&seid=16732134441560039998" title="知无涯者" target="_blank">知无涯者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep340751?theme=movie%3Ffrom%3Dsearch&seid=960190305093062102" title="澄沙之味" target="_blank">澄沙之味</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av33429330?from=search&seid=15360553913887371012" title="发现的乐趣" target="_blank">发现的乐趣</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="有熊谷守一在的地方" target="_blank">有熊谷守一在的地方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基类"><span class="nav-text">1. 基类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-培养对NLP的兴趣："><span class="nav-text">1.1 培养对NLP的兴趣：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-培养创造力"><span class="nav-text">1.2 培养创造力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-时间管理"><span class="nav-text">1.3 时间管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-性格类"><span class="nav-text">2. 性格类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-习惯类"><span class="nav-text">3. 习惯类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-工作类"><span class="nav-text">4. 工作类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-方式方法类"><span class="nav-text">5. 方式方法类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-客观条件类"><span class="nav-text">6. 客观条件类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-感悟类"><span class="nav-text">7. 感悟类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-drupal"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0 丨 1</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">231k</span>
+  
+
+  
+</div>
+-->
+
+<!--
+-->
+
+<!--
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+-->
+
+<img class='footerpicture' src="/images/footer.png">
+
+<!--
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>

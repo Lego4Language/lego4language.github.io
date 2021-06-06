@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","width":"14.5em","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="为什么研究代数几何">
+<meta property="og:url" content="https://lego4language.github.io/2021/03/27/为什么研究代数几何/index.html">
+<meta property="og:site_name" content="NLP">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】为什么研究代数几何（头图）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】为什么研究代数几何（01）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】为什么研究代数几何（02）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】为什么研究代数几何（03）.png">
+<meta property="og:updated_time" content="2021-05-28T14:06:58.793Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为什么研究代数几何">
+<meta name="twitter:image" content="https://lego4language.github.io/DIY/picture/【博文】为什么研究代数几何（头图）.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://lego4language.github.io/2021/03/27/为什么研究代数几何/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>为什么研究代数几何 | NLP</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  
+    
+  
+
+  <!-- 彩带特效 -->
+  
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo" style="margin-left: 0px">
+    
+      <div class="site-meta-headline">
+        <a href="https://lego4language.gitee.io/">
+          <img class="custom-logo-image" src="/images/logo.png" alt="NLP"/>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <p id="nav-toggle-up">—— 物语先生</p>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-博客">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />博客</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-行业">
+    <a href="/Menu-Industry/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />行业</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-规划">
+    <a href="/Menu-Plan/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-crosshairs"></i> <br />规划</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-问题">
+    <a href="/Menu-Question/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />问题</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/Menu-About/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-github"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/Menu-Category/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-资源">
+    <a href="/Menu-Source/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-skype"></i> <br />资源</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-足迹">
+    <a href="/Menu-Log/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-paw"></i> <br />足迹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-趣文">
+    <a href="/Menu-InterestingPaper/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-cube"></i> <br />趣文</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-建站">
+    <a href="/Menu-Web/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-power-off"></i> <br />建站</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/Menu-Tag/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-地图">
+    <a href="/Menu-Map/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-总结">
+    <a href="/Menu-Summary/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-hourglass"></i> <br />总结</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-生活">
+    <a href="/Menu-Life/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />生活</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+                  <!-- 这是添加的submenu目录 2019-09-25-->
+                  <link href="/css/submenu/submenu.css" rel="stylesheet" type="text/css" />
+                  <ul id="nav">
+                      <li id="first"><a class="hsubs" href="#">《 学科 》</a>
+                          <ul class="first">
+                              <li><a href="/SubMenu-Subject-Math/"><p id="smallest">数学</p></a></li>
+                              <li><a href="/SubMenu-Subject-Vision/"><p id="smallest">视觉</p></a></li>
+                              <li><a href="/SubMenu-Subject-CS/"><p id="smallest">计算机</p></a></li>
+                              <li><a href="/SubMenu-Subject-Speech/"><p id="smallest">语音</p></a></li>
+                              <li><a href="/SubMenu-Subject-Cognitive/"><p id="smallest">认知学</p></a></li>
+                              <li><a href="/SubMenu-Subject-TextMining/"><p id="smallest">文本挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subject-Philosophy/"><p id="smallest">哲学</p></a></li>
+                              <li><a href="/SubMenu-Subject-InformationRetrieval/"><p id="smallest"></p>信息检索</a></li>
+                              <li><a href="/SubMenu-Subject-Psychology/"><p id="smallest">心理学</p></a></li>
+                              <li><a href="/SubMenu-Subject-RecommendedSystem/"><p id="smallest">推荐系统</p></a></li>
+                              <li><a href="/SubMenu-Subject-Linguistic/"><p id="smallest">语言学</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="second"><a class="hsubs" href="#">《 框架 》</a>
+                          <ul class="second">
+                              <li><a href="/SubMenu-Frame-MachineLearning/"><p id="smallest">机器学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-DeepLearning/"><p id="smallest">深度学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GNN/"><p id="smallest">图神经网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-TransferLearning/"><p id="smallest">迁移学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ReinforcementLearning/"><p id="smallest">强化学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GAN/"><p id="smallest">对抗生成网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-MetaLearning/"><p id="smallest">元学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-WeeklySupervisedLearning/"><p id="smallest">弱监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-SelfSupervisedLearning/"><p id="smallest">自监督学习</p></a></li>
+                              <li><a href="/#"><p id="smallest">无监督学习</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="third"><a class="hsubs" href="#">《 分支 》</a>
+                          <ul class="third">
+                              <li><a href="/SubMenu-Subdomain-FeatureEngineering/"><p id="smallest">特征工程</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextProcessing/"><p id="smallest">文本预处理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-RepresentationLearning"><p id="smallest">表示学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-PreTraining/"><p id="smallest">预训练</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-LanguageModel/"><p id="smallest">语言模型</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Segmentation/"><p id="smallest">分词</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-POS/"><p id="smallest">词性标注</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-NER/"><p id="smallest">命名实体识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextErrorCorrection"><p id="smallest">文本纠错</p></a></li>
+                              <li><a href="#"><p id="smallest">语句改写</p></a></li>
+                              <li><a href="#"><p id="smallest">语种识别</p></a></li>
+                              <li><a href="#"><p id="smallest">关键词提取</p></a></li>
+                              <li><a href="#"><p id="smallest">敏感词过滤</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-DependencyParse/"><p id="smallest">依存分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ConstituencyParse/"><p id="smallest">成分解析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SentimentAnalysis/"><p id="smallest">情感分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-IntentRecognition/"><p id="smallest">意图识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SemanticParsing/"><p id="smallest">语义分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-CoReferenceResolution/"><p id="smallest">指代消解</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextClassification/"><p id="smallest">文本分类</p></a></li>
+                              <li><a href="#"><p id="smallest">文本聚类</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextMatch/"><p id="smallest">文本匹配</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLG/"><p id="smallest">文本生成</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Summarization/"><p id="smallest">文本摘要</p></a></li>
+                              <li><a href="#"><p id="smallest">文本蕴含</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-IE/"><p id="smallest">信息抽取</p></a></li>       
+                              <li><a href="#"><p id="smallest">风格转换</p></a></li>  
+                              <li><a href="#"><p id="smallest">观点挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-MultitaskLearning/"><p id="smallest">多任务学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ReadingComprehension"><p id="smallest">阅读理解</p></a></li>
+                              <li><a href="#"><p id="smallest">繁简转化</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLI/"><p id="smallest">自然语言推理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-QA/"><p id="smallest">问答系统</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TaskBot/"><p id="smallest">任务型对话</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ChatBot/"><p id="smallest">闲聊系统</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ML/"><p id="smallest">机器翻译</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="forth"><a class="hsubs" href="#">《 主题 》</i></a>
+                          <ul class="forth">
+                            <li><a href="/SubMenu-Theme-Knowledge/"><p id="smallest">知识 + </p></a></li>
+                            <li><a href="/SubMenu-Theme-Multimodals/"><p id="smallest">多模态</p></a></li>
+                            <li><a href="/SubMenu-Theme-Explainable/"><p id="smallest">可解释性</p></a></li>
+                            <li><a href="/SubMenu-Theme-ZeroShot/"><p id="smallest">零资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-FewShot/"><p id="smallest">低资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-RichSource/"><p id="smallest">高资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-Cause/"><p id="smallest">因果逻辑</p></a></li>
+                            <li><a href="/SubMenu-Theme-ModelCompression/"><p id="smallest">模型压缩与加速</p></a></li>
+                            <li><a href="/SubMenu-Theme-DataAugmentation/"><p id="smallest">数据增强</p></a></li>
+                            <li><a href="/SubMenu-Theme-SourceandEvaluation/"><p id="smallest">资源和评估</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="fifth"><a class="hsubs" href="#">《 领域 》</a>
+                          <ul class="fifth">
+                            <li><a href="#"><p id="smallest">教育</p></a></li>
+                            <li><a href="#"><p id="smallest">金融</p></a></li>
+                            <li><a href="#"><p id="smallest">电商</p></a></li>
+                            <li><a href="#"><p id="smallest">IT</p></a></li>
+                          </ul>
+                      </li>
+                      <div id="lavalamp"><img src="/images/lavalamp.png"></div>
+                  </ul>
+                  <!--submenu目录结束-->
+      </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://lego4language.github.io/2021/03/27/为什么研究代数几何/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="0 丨 1">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NLP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">为什么研究代数几何
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-27 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-27T00:00:00+08:00">2021-03-27</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2021-05-28 22:06:58" itemprop="dateModified" datetime="2021-05-28T22:06:58+08:00">2021-05-28</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/" itemprop="url" rel="index"><span itemprop="name">数学</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数学/学科理解/" itemprop="url" rel="index"><span itemprop="name">学科理解</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">8.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">27 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <center><div style="width: 40%"><img src="/DIY/picture/【博文】为什么研究代数几何（头图）.png" alt="link"></div></center>
+
+<a id="more"></a>
+<p><br></p>
+<p>由于数学的抽象与艰深，以及与日常社会生活的严重脱节，数学家们的生活一般来说很难进入公众的视野。另一方面，也由于绝大多数数学家的生活的确是枯燥乏味和平淡无奇的，这些都很难成为记实和文学写作的题材，相比起其他学科来说，专门描写数学家生平与学术贡献的传记并不多。即使在仅有的几本这类传记中，也往往会堆砌一些与数学家真正关注的数学思想与学术生涯并无很大关系的材料，以充实相对缺乏趣味的个人与社会生活内容。因此真正写得好的数学家传记其实是非常少见的。<br><br>由美国科学出版社在1991年出版的传记<b>《The Unreal Life of Oscar Zariski》$^{[1]}$</b>是一本被公认为写得比较成功的数学家传记。这本书的书名本文暂且译为《不真实的人生——数学家扎里斯基传》，该书作者介绍说之所以取Unreal Life这个书名，是因为扎里斯基曾经说过这样一句话：几何是真实的生活（Geometry is the real life）,作为一名大数学家，扎里斯基的生活被真实地记录在了上百篇论文和几部专著中。相比之下，数学以外的日常生活就显得不那么真实或是虚幻的，这是因为在数学中，人们可以更自由充分地表达自己的个性、好奇心、乐观、骄傲、倔强、诉求以及智力上的浪漫。<br></p>
+<center><div style="width: 25%"><img src="/DIY/picture/【博文】为什么研究代数几何（01）.png" alt="link"></div></center>
+
+<p>这本传记是在扎里斯基去世5年后推出的，内容丰富翔实，表述准确到位，生动展示了扎里斯基作为一名数学家的成长过程和研究教学的主要成就。由于颇受好评，著名的Springer出版社于2009年重新再版了这本出色的传记。<b>目前这本书已经成为我们了解20世纪代数几何发展历史的重要参考文献之一。</b><br><br><b id="em">扎里斯基（1899-1986）是20世纪最有影响的代数几何学家中的一个，他通过运用抽象代数的思想方法，和韦伊（Weil）、格罗腾迪克（Grothendieck）等人一起在20世纪的中期重新建立了代数几何的逻辑基础，澄清了经典代数几何中的许多模糊之处，从而为20世纪下半叶代数几何的大发展奠定了坚实的基础，为此他在1981年获得了沃尔夫数学奖$^{[2]}$。</b><br><br>在现代数学众多的分支学科中，代数几何是一门非常重要而又特别的基础学科$^{[3]}$，它与数学中其他分支学科有着广泛的联系，并且被深刻地应用到理论物理及其他的科学技术中。在大多数20世纪现代数学重大进步（例如获得菲尔兹奖和沃尔夫奖的工作）的背后，或多或少都有代数几何的背景。扎里斯基的学生、菲尔兹奖获得者芒福德(Mumford)曾经写过如下一段话来表达他对这门奇特学科的看法：</p>
+<blockquote>
+<p>“当我开始在代数几何中研究生涯的时候，我认为有两个吸引我的原因，首先是它研究的对象实在是非常形象和具体的射影曲线与曲面；第二是因为这是一个既小又安静的领域，其中大概只有十来个人在研究，几乎不需要新的想法。然而随着时光的推移，这个学科逐渐获得了一个看上去是诡秘、孤傲而又极端抽象的名声，它的信徒们正在秘密打算接管其他所有的数学领域！从某种程度上说，上述最后一句话是对的：代数几何是一门与大量其他数学分支学科有着最密切关系的学科 一一 例如复解析几何（多复变）与微分几何、拓扑学、K–理论、交换代数、代数群和数论…并且既能给所有这些学科以各种定理、方法和例子，同时又能够从它们那里得到同样多的定理、方法和例子。”$^{[4]}$</p>
+</blockquote>
+<p>确实很难让人相信：从研究一组多元多项式的零点集合（即代数簇）中可以引发出那么多那么重要深刻而又美好的数学理论。虽然在现代数学中也有一些学科与其他学科有比较密切的联系，但这种联系远不及代数几何与其他学科的联系。<b>抽象代数、代数拓扑与微分拓扑、整体微分几何、数论以及分析中许多重要的理论都是因代数几何的需要而提出的，同时代数几何也将分析、拓扑、几何与数论中的许多基本概念和理论抽象提升到了更高的层次，所以说代数几何是20世纪数学统一化的一个主要源动力。</b>往往在别的学科中是一般性的理论，但是到了代数几何中就变成一个特例。由于数学的发展在很大程度上依赖于各分支学科之间的交叉影响和相互作用，因此可以说代数几何对20世纪现代数学的大发展所起的作用最大。<b>代数几何已经成为将现代数学各主要分支学科紧密联系在一起的中心纽带。</b>由此我们就不难理解为什么国际数学界对于和代数几何有关的重要工作总是给予较高的评介。例如获得沃尔夫奖的陈省身与丘成桐两位大师，他们最重要的工作就与代数几何密切相关：陈（省身）示性类被深刻地推广与运用到代数几何中，而卡拉比-丘（成桐）流形则是当前复代数几何中最热门的研究对象之一。<br><br><b>代数几何最早起源于在17和18世纪牛顿和贝朱（Bezout）等人关于平面代数曲线的研究工作，例如牛顿曾经仔细研究过平面三次实代数曲线的分类。到了19世纪上半叶的射影几何登场后，才开始出现一些关于复代数曲线与复代数簇的初步的代数几何理论。然后黎曼在研究复变函数的阿贝尔积分理论的过程中提出了内蕴的黎曼面概念和代数函数的理论，也就是从崭新的比较抽象的拓扑与几何视角来重新研究复代数曲线，并且发现了流形的拓扑不变量──亏格（拓扑学就是从这里开始的）。在此之后，以克罗内克、戴德金和韦伯(Weber)为代表的代数学派受代数数论的启发相继引入了理想、赋值和除子等最基本的概念，特别是戴德金和韦伯两位已经有了用纯代数的方法来研究代数曲线的超前想法。与此同时，以M.诺特为代表的几何学派继续从经典射影几何的角度研究复代数曲线和复代数簇，发现了平面曲线奇点解消的基本方法。</b><br><br><b>从19世纪末期开始，代数几何的发展进入了一个新的历史阶段。一些数学家试图将黎曼的复代数曲线理论推广到复代数曲面上。虽然这里的维数仅仅增加了一维，但是与代数曲线完全不同，研究代数曲面需要克服许多困难，难度极大。庞加莱为此提出了代数拓扑的同调理论，莱夫谢茨（Lefchetz）用这个同调理论研究了复代数曲面的拓扑性质。当然最主要的贡献还是来自于著名的意大利学派。这个学派的三个主要代表人物是卡斯泰尔诺沃（Castelnuovo）、恩里奎斯（Enriques）和塞维里（Severi），他们在20世纪初期用天才的几何直觉和高超的几何技巧，综合运用包括分析与拓扑方法在内的各种方法创造了复代数曲面的一个非常深刻的理论。但同时他们的工作也有一个致命的缺陷，就是缺少一个统一的逻辑基础，一些证明依赖于几何直观，缺乏严密性。和数学史上常见的情形类似，这种逻辑基础不稳的状况对于视严格为生命的数学家们来说是一件特别纠结和难受的事，它严重阻碍了代数几何的进一步向前发展。</b><br><br>扎里斯基就是在这个历史发展的关键时刻进入到代数几何领域中来的。<br><br>扎里斯基早年的经历比较曲折。扎里斯基于1899年出生于白俄罗斯的科布林，这是一个靠近波兰边境的小城市。扎里斯基是犹太人后裔，他是7个孩子中的一个，父亲早逝，靠母亲抚养长大。由于家境不错，受到良好的教育，且从小就显露出对数学的爱好。1918年扎里斯基进入乌克兰的基辅大学后开始学习数学，偏向于代数与数论。同时他在大学里还是一名关心社会、积极宣传马克思主义的进步学生，并且在游行中受过伤。当时正处于十月革命后国内战争的动荡时期，为了更好地学习数学，在经过一番周折后，扎里斯基于1921年来到文艺复兴的发源地意大利，当年秋天进入罗马大学求学。<br><br>这时的罗马大学正是当时世界代数几何的研究中心，意大利学派的所在地。由于在经典代数几何中需要用到许多代数知识，这对喜欢代数的扎里斯基来说，很自然地被吸引到代数几何这个领域中来了。他在听卡斯泰尔诺沃的“代数几何与代数函数”课的时候，还自学了所需要的复变函数论。而在恩里奎斯的课上，他不安地发现“只有几何，只看到各种曲线和图形，非常随意，没有证明。” 至于意大利学派三位大数学家中最年轻、最有影响的塞维里的课，就更随意了，所作的断言常常分不清是定理还是猜想，或是假设。尽管如此，扎里斯基以他的天赋还是从三位老师那里学到了许多东西，以至他心存感激地称罗马大学为他的“几何乐园”。他开始关心怎样完善他的意大利老师们的代数几何成果的严格证明问题，只是此时他和他的老师们都还不了解在德国哥廷根抽象代数（特别是环论）的发展。当时的看法是也许可以用拓扑和分析的方法来改造代数几何旧有的综合证明方法，所以卡斯泰尔诺沃鼓励他学习莱夫谢茨新的拓扑方法。为此扎里斯基在罗马大学获得博士学位后，于1927年来到美国的约翰斯霍普金斯大学工作，以便于和在普林斯顿的莱夫谢茨进行交往。<br><br><b>在美国的前几年中，扎里斯基花了很大精力做的一个工作是写作《代数曲面》$^{[5]}$一书。这本于1935年问世的重要著作系统总结了意大利学派关于代数曲面的经典理论，成为了后人了解意大利学派工作的必读书籍。</b>从这本经典著作中，我们可以发现意大利学派在代数曲面方面的工作确实达到了很高的水平：奇点解消、除子与线性系、黎曼-罗赫(Roch)定理、参模、拓扑方法、分析方法等等。不过，扎里斯基更想做的是：为缺乏严密性的经典代数几何打造一个坚实的逻辑基础，所以他在书中尽量简化各定理原来的证明过程，并在其中注入严密性，正如他在《代数曲面》的前言中所说的：“在代数几何这个领域内，（定理证明）所采用的方法的重要性决不亚于定理与结论本身。”今天再读这本书，可以看到，除了大量使用旧的经典代数几何方法之外，虽然已经开始运用在当时来说是新的拓扑与分析方法（例如同调方法），但却找不到抽象代数方法的任何踪迹。</p>
+<center><div style="width: 25%"><img src="/DIY/picture/【博文】为什么研究代数几何（02）.png" alt="link"></div></center>
+
+<p>扎里斯基在完成《代数曲面》的写作后并不十分高兴。他曾经回忆说：</p>
+<blockquote>
+<p>“我试图尽我最大的努力揭示出意大利几何学家们所采用的天才几何方法背后的深刻思想，并对整个曲面理论中最重要的一些定理给出证明，虽然做得很成功，但是付出了一个代价。这个代价就是失去了我自己的几何乐园，在这里我曾经是那样的幸福。我开始明显地对那些经我整理的原始证明的严密性感到不安和失落（虽然没有失去对弥漫在这些证明中富有想象力的几何精神的敬意）；我逐渐相信所有这些证明都必须用纯代数的方法重新来过。”</p>
+</blockquote>
+<p>例如在《代数曲面》的第一章中，扎里斯基仔细分析了复代数曲面奇点解消定理的四种不同的证明过程，这些证明所用的方法基本都是不严格的经典代数几何方法，即便扎里斯基再怎么努力,也不可能消除其中的模糊之处。而奇点解消问题在代数几何中是一个非常基本的问题，它的大意是为每个有奇点的代数曲面寻找一个和它在同一类的光滑曲面。这个问题与代数曲面的分类问题直接相关，而分类问题又是代数几何的中心研究课题。<br><br>对于已经熟悉了现今用抽象代数与层论来表述代数簇性质的人们来说，当知道了1939年之前的代数几何基本上不用抽象代数与理想语言的时候，是有些吃惊的。这是因为用抽象代数与环的理想语言来研究代数簇实在是太确切和方便了，我们难以想象没有这种语言时的情形。例如读一下范德瓦尔登在1939年写的《代数几何引论》中文译本$^{[6]}$，就会发现如果不用现代的理想与拓扑语言时，代数簇性质的描述是比较粗放的(这里笔者介绍一本运用理想与拓扑语言写的一本英文初级引论教材$^{[7]}$）。<br><br>更加让人吃惊的是，作为现代抽象代数几何鼻祖的扎里斯基，在写完《代数曲面》的时候，居然还不懂环的理想理论！他在这时候从读范德瓦尔登的《代数学》和克鲁尔(Krull)的《理想论》入手，开始自学抽象代数和环的理想理论。与我们现在常见的为学习而学习不同，扎里斯基在学习的时候有着非常明确的目的：那就是同时研究怎样用这些抽象代数的理论来重新严格地给出经典代数几何定理的证明。他尤其为克鲁尔所发现的局部环理论所震动，因为这正是研究任意域上的代数几何所需要的。此外戴德金和韦伯的用纯代数方法研究代数函数（即代数曲线）的著名文章也给扎里斯基以深深的启发。<br><br>但是“扎里斯基不久就意识到，仅仅改写证明是不够的。他必须引入不类似于他的意大利老师的几何构架的新的概念。虽然（用抽象代数重新改造代数几何的）算术化的目的是严格证明意大利学派的代数几何，从而保留其传统，但是只有引进全新的概念与方法，以此来完全取代旧的方法，这个目标才能达到。”$^{[8]}$这也就是说，要想逐字逐句地运用抽象代数已有的概念和理论将经典代数几何的定理“翻译”成抽象代数的语言是远远不够的，有的时候扎里斯基必须自己重新发明新的抽象代数概念和理论才能应付研究代数簇复杂性质的需要。例如在研究改进意大利学派考虑过的代数曲面奇点解消定理证明的时候，扎里斯基就第一次成功地将环论中的整闭包与赋值环的理论运用到代数几何中，并且在戴德金等人工作的启发下还重新创造了一个新的代数概念：正规（normal）的概念（例如坐标环在其商域中整闭的代数簇称为正规簇）。在有了这些强有力的抽象代数武器后，扎里斯基就能够彻底消除原来证明中的模糊之处，于1939年完全严格地证明了这个重要的奇点解消定理。当然代价是重新改变了经典代数几何中原先比较直观简单的几何语言，代之以更加抽象和难以理解的抽象代数语言。这种语言更加精致和准确，足以处理原来比较粗糙的古典语言所不能对付的复杂情形。<br><br>从此以后，扎里斯基就在代数几何的严格化与代数化这个方向上做了大量的研究工作，其影响可以从现在普遍采用的术语中反映出来：扎里斯基拓扑、扎里斯基切空间、扎里斯基主定理、扎里斯基曲面和扎里斯基空间等。<b>扎里斯基还投入了大量精力来研究代数几何所需要的抽象代数，并且和另一位数学家塞缪尔（Samuel）一起写出了两大卷已经成为了抽象代数经典著作的《交换代数》$^{[9]}$。</b>就这样，扎里斯基引导着整个代数几何学科进入了一个全新的历史阶段。</p>
+<center><div style="width: 45%"><img src="/DIY/picture/【博文】为什么研究代数几何（03）.png" alt="link"></div></center>
+
+<p><b>与扎里斯基同时或稍后，韦依、范德瓦尔登和周炜良等人也和扎里斯基一样，在积极地推进代数几何基础的重建工作。当然对代数几何基础进行最彻底的改造还是来自于塞尔（Serre）和格罗腾迪克在50年代的伟大工作。人们的感觉是他们突然之间彻底重写了代数几何。其实，塞尔的层论与同调代数是整体微分几何、多复变函数、抽象代数、拓扑学得到充分发展后的产物（层论现在已经成为研究代数簇整体性质的重要工具），而格罗腾迪克是一个集大成者，他等于是综合了扎里斯基和塞尔两人的工作，即通过运用前者的交换代数和后者的层论与同调代数、以及更先进的几何与拓扑思想，将经典的代数簇理论推广成了适用面更广的概形(scheme)理论，从而将代数几何打造成了一个在很大程度上将几何、代数、数论与分析完美统一起来的逻辑推理体系。</b><br><br>后来的历史发展证明，当经典代数几何的逻辑基础问题被彻底解决后，代数几何便获得了急速的巨大进步$^{[10]}$。这可以从扎里斯基后来在哈佛大学培养出来的一大批优秀代数几何学者的工作中得到印证，其中有两位获得了菲尔兹奖：广中平佑(Hironaka)是因为完全解决了任意维数的代数簇的奇点解消问题而在1970年获奖，芒福德是在1974年因为对参模理论的贡献而得奖。当然，代数几何在20世纪下半叶最辉煌的胜利应该是怀尔斯(Wiles)在90年代用代数几何的工具证明了数论中著名的费马大定理。这一切都充分显示了当初扎里斯基对建立代数几何基础的所作杰出贡献的重要意义和长远影响。<br><br><b id="em">扎里斯基创立代数几何逻辑基础的艰难历程对于今天的学生学习代数几何也有重要的启示。如前所述，代数几何与数论、拓扑、抽象代数、多复变函数、代数群以及复微分几何等学科有着极密切的联系，只有对这些相关学科都有所涉足，才能对代数几何有比较深入的了解。实际上，“代数几何不是一门‘原创的’学科，即可以建立在一组简洁的公理或定义上的学科，它毋宁说是一门‘综合的’学科，其研究方法非常多样，不同时代、不同学派的风格千差万别，教科书也有多种模式，甚至没有大体一致的基本内容，这是与其他学科很不相同的。”$^{[11]}$在学习象代数几何这样的超级航母般的学科时，我们尤其需要了解重要经典代数几何问题的解决过程。这是因为代数几何中许多重要的基本概念和方法都是经过了多次反复抽象与推广而得到的，所以旧的经典方法与新的现代方法在本质上是互相联系的。在历史上曾经引起过困惑争议因而出现较晚的理论，一般来说学生在学习的时候也会有较多的困惑与困难。应当让学生在学习较高层次的理论之前先经历较低层次的抽象过程，只有这样学生才能领悟所学知识的真正内涵。目前庞大的代数几何学科大致可以粗略地分为复代数几何（即复几何）与纯代数几何（即抽象代数几何）两大部分：前者主要运用多复变函数论、代数拓扑学和复微分几何等学科来研究代数簇的性质（虽然这些学科已经很抽象了，但相对来讲还直观一些），而后者主要是以抽象代数和函子作为工具来研究，虽然难以理解和想象，但是结论精确，并且由此得到的结果适用面更广。一般的情形是：在历史上总是先有复代数几何的结果，然后在此基础上引入抽象代数的工具再进行严格化，从而可以推广到纯代数几何的高层次。因此初学者在学习代数几何的时候，应当从学习复代数几何与经典代数几何开始（尽量用现代语言），这样才有可能理解高度抽象的纯代数几何。</b><br><br>时代早已进入21世纪，与一百年前扎里斯基来到罗马时所处的时代相比，数学的面貌已经天翻地覆大为改观了。现代数学真正成为了人类知识领域中最博大精深的一个，其抽象与艰深的程度登峰造极。在取得巨大进步的同时，现代数学也面临着分支学科种类繁多，研究范围越来越狭窄、概念越来越抽象的严重问题，这不免让人越来越困惑：数学研究的目标究竟是什么？一方面我们要努力使现代数学这一真正完美的人类文化遗产得到传承并发扬光大，但是另一方面应该看到：数学作为主要研究抽象逻辑结构（模式）的独特学科，与其他自然科学与社会科学学科是很不一样的，后者以大自然与人类社会作为唯一的研究对象，而在数学中，可供研究的逻辑上正确的抽象数学模式可以有任意多个，很容易迷失方向。如何避开那些意义不大的研究对象，找到真正有意义有发展前途的研究方向？对于这些难以回答的问题，我们也许可以从20世纪现代数学波澜壮阔的发展历史，以及象扎里斯基这样的一代数学大师的治学经历中找到一些有益的启示。<br><br><b>参考文献</b>：<br>[1] C. Parikh , The Unreal Life of Oscar Zariski , San Diego : Academic Press , Inc . , 1991 (Springer-Verlag出版社2009年再版).<br>[2] 李心灿，当代数学大师──沃尔夫数学奖得主及其建树与见解，北京航空航天大学出版社，1999.<br>[3] 陈跃，现代数学主要分支学科的通俗介绍，数学文化，2012，第1期.<br>[4] D. .Mumford , The Red Book of Varieties and Schemes, (second , Expanded Edition), Springer-Verlag , 1999.<br>[5] O. Zariski , Algebraic Surfaces, 2nd ed , Springer-Verlag , 1971 (世界图书出版公司2010年影印) .<br>[6] 范德瓦尔登，代数几何引论，科学出版社，2008.<br>[7] D. Perrin , Algebraic Geometry : An Introduction , Springer-Verlag, 2008.<br>[8] J. J. Gray , K. H. Parshall (editors) , Episodes in the History of Modern Algebra (1800-1950), American Mathematical Society, 2007.<br>[9] O. Zariski , P. Samuel , Commutative Algebra , Vol . I , II , Van Nostrand , Princeton , 1958, 1960. (Springer-Verlag出版社1979年重印，世界图书出版公司2000年影印).<br>[10] J. Dieudonne , History of Algebraic Geometry , Wadsworth , Inc. ,1985.<br>[11] 李克正，代数几何初步，科学出版社，2004.</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    <div>
+        
+          <div id="end-text">
+    
+        <div style="text-align:center;">- - - <i class="fa fa-drupal"></i> <b>本文结束</b> - - -</div>
+    
+</div>
+
+        
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/03/20/数学家名录/" rel="next" title="Mathematicians">
+                <i class="fa fa-chevron-left"></i> Mathematicians
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/04/14/美国大学数学研究生基础课程参考书目/" rel="prev" title="美国大学数学研究生基础课程参考书目">
+                美国大学数学研究生基础课程参考书目 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+     <i class="fa fa-drupal"></i>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="0 丨 1" />
+            
+              <p class="site-author-name" itemprop="name">0 丨 1</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/Menu-Category/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/Menu-Tag/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">45</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="‹‹ 数丨语 ››">‹‹ 数丨语 ››</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="简 单，">简 单，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="执 拗，">执 拗，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="一 直 到 老 。">一 直 到 老 。</a>
+                  
+                </span>
+              
+            </div>
+          
+
+
+
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-apple"></i>
+                《 滴丨答 》
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/BV1N741177BJ?p=2" title="徒手攀岩" target="_blank">徒手攀岩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av4703308?from=search&seid=2865836903687886974" title="四弦人生" target="_blank">四弦人生</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep333948?theme=movie%3Ffrom%3Dsearch&seid=16732134441560039998" title="知无涯者" target="_blank">知无涯者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep340751?theme=movie%3Ffrom%3Dsearch&seid=960190305093062102" title="澄沙之味" target="_blank">澄沙之味</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av33429330?from=search&seid=15360553913887371012" title="发现的乐趣" target="_blank">发现的乐趣</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="有熊谷守一在的地方" target="_blank">有熊谷守一在的地方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-drupal"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0 丨 1</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">231k</span>
+  
+
+  
+</div>
+-->
+
+<!--
+-->
+
+<!--
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+-->
+
+<img class='footerpicture' src="/images/footer.png">
+
+<!--
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
