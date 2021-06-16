@@ -3753,14 +3753,14 @@ div.links-of-author.motion-element {
 }
 .close:after {
   content: " <more>";
-  font-size: 0.5em;
-  color: #006400;
+  font-size: 0.6em;
+  color: #008000;
   font-family: aba;
 }
 .open:after {
   content: " <fold>";
-  font-size: 0.5em;
-  color: #006400;
+  font-size: 0.6em;
+  color: #008000;
   font-family: aba;
 }
 div#fold {
@@ -3933,8 +3933,10 @@ td.code {
   border-bottom: 1px dashed #40aaff;
 }
 .post-body a:hover {
-  color: #3d79cb;
+  color: #229954;
+  text-shadow: 0 0 0.04em #145a32;
   border-bottom: none;
+  padding-left: 0.3em;
 }
 a {
   Content-Type: application/pdf;
@@ -3942,4 +3944,12 @@ a {
 }
 .posts-expand .post-body li {
   text-align: left;
+}
+div.MathJax_Display {
+  font-size: 0.9em;
+}
+@media (max-width: 767px) {
+  div.MathJax_Display {
+    font-size: 0.7em;
+  }
 }
