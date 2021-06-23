@@ -1368,7 +1368,6 @@ pre .javascript .function {
 .posts-expand .post-body h2 {
   font-size: 1.6em;
   text-align: center;
-  letter-spacing: 2pt;
   padding-left: 15px;
   padding-bottom: 3px;
   padding-top: 3px;
@@ -1386,7 +1385,6 @@ pre .javascript .function {
   color: #fff;
   font-weight: normal;
   font-size: 1.05em;
-  letter-spacing: 2pt;
   font-family: aba;
   border-left: 0.6em solid #000;
   padding-left: 0.6em;
@@ -1402,7 +1400,6 @@ pre .javascript .function {
 .posts-expand .post-body h4 {
   color: #000;
   font-size: 0.95em;
-  letter-spacing: 1.5pt;
   line-height: 1.3em;
   font-weight: normal;
   font-family: aba;
@@ -1419,7 +1416,6 @@ pre .javascript .function {
 }
 .posts-expand .post-body h5 {
   color: #000;
-  letter-spacing: 1pt;
   font-weight: normal;
   font-size: 0.83em;
   line-height: 1.2em;
@@ -1440,7 +1436,6 @@ pre .javascript .function {
   color: #000;
   font-weight: normal;
   font-size: 0.85em;
-  letter-spacing: 1pt;
   line-height: 1.1em;
   font-family: aba;
   border-left: 0.2em solid #530d25;
@@ -3576,8 +3571,8 @@ div#end-text {
   border: none !important;
 }
 ::-webkit-scrollbar {
-  width: 3px;
-  height: 2px;
+  width: 5px;
+  height: 3px;
 }
 ::-webkit-scrollbar-track {
   background: #030024;
