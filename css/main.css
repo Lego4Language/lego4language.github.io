@@ -3507,8 +3507,16 @@ div.site-nav-toggle button {
   text-align: center;
 }
 h1 {
+  width: 40%;
+  left: 30%;
   font-family: aba;
   font-weight: normal;
+}
+@media (max-width: 767px) {
+  h1 {
+    width: 60%;
+    left: 20%;
+  }
 }
 .subtitle {
   font-family: aba;
