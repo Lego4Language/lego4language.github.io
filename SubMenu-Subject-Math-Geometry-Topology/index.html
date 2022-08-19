@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.4.1',
+    sidebar: {"position":"left","width":"14.5em","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta name="description" content="Geometry and Topology">
+<meta name="keywords" content="几何,拓扑">
+<meta property="og:type" content="website">
+<meta property="og:title" content="《 几何与拓扑 》">
+<meta property="og:url" content="https://lego4language.github.io/SubMenu-Subject-Math-Geometry-Topology/index.html">
+<meta property="og:site_name" content="喂，这世界！">
+<meta property="og:description" content="Geometry and Topology">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】几何与拓扑（头图）.png">
+<meta property="og:image" content="https://lego4language.github.io/DIY/picture/【博文】几何与拓扑（01）.png">
+<meta property="og:updated_time" content="2022-08-19T08:42:38.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《 几何与拓扑 》">
+<meta name="twitter:description" content="Geometry and Topology">
+<meta name="twitter:image" content="https://lego4language.github.io/DIY/picture/【博文】几何与拓扑（头图）.png">
+
+
+
+
+
+
+  <link rel="canonical" href="https://lego4language.github.io/SubMenu-Subject-Math-Geometry-Topology/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>《 几何与拓扑 》 | 喂，这世界！</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  
+  
+    
+  
+
+  <!-- 彩带特效 -->
+  
+  
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta custom-logo" style="margin-left: 0px">
+    
+      <div class="site-meta-headline">
+        <a href="https://lego4language.github.io/">
+          <img class="custom-logo-image" src="/images/logo.png" alt="喂，这世界！"/>
+        </a>
+      </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <p id="nav-toggle-up">—— 物语先生</p>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-博客">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />博客</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-行业">
+    <a href="/Menu-Industry/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-globe"></i> <br />行业</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-规划">
+    <a href="/Menu-Plan/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-crosshairs"></i> <br />规划</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-问题">
+    <a href="/Menu-Question/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />问题</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-关于">
+    <a href="/Menu-About/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-github"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-分类">
+    <a href="/Menu-Category/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-资源">
+    <a href="/Menu-Source/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-skype"></i> <br />资源</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-足迹">
+    <a href="/Menu-Log/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-paw"></i> <br />足迹</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-趣文">
+    <a href="/Menu-InterestingPaper/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-cube"></i> <br />趣文</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-建站">
+    <a href="/Menu-Web/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-power-off"></i> <br />建站</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-标签">
+    <a href="/Menu-Tag/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-地图">
+    <a href="/Menu-Map/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-bug"></i> <br />地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-总结">
+    <a href="/Menu-Summary/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-hourglass"></i> <br />总结</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-生活">
+    <a href="/Menu-Life/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />生活</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+                  <!-- 这是添加的submenu目录 2019-09-25-->
+                  <link href="/css/submenu/submenu.css" rel="stylesheet" type="text/css" />
+                  <ul id="nav">
+                      <li id="first"><a class="hsubs" href="#">《 学科 》</a>
+                          <ul class="first">
+                              <li><a href="/SubMenu-Subject-Vision/"><p id="smallest">视觉</p></a></li>
+                              <li><a href="/SubMenu-Subject-CS/"><p id="smallest">计算机</p></a></li>
+                              <li><a href="/SubMenu-Subject-Speech/"><p id="smallest">语音</p></a></li>
+                              <li><a href="/SubMenu-Subject-Cognitive/"><p id="smallest">认知学</p></a></li>
+                              <li><a href="/SubMenu-Subject-TextMining/"><p id="smallest">文本挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subject-Philosophy/"><p id="smallest">哲学</p></a></li>
+                              <li><a href="/SubMenu-Subject-InformationRetrieval/"><p id="smallest"></p>信息检索</a></li>
+                              <li><a href="/SubMenu-Subject-Psychology/"><p id="smallest">心理学</p></a></li>
+                              <li><a href="/SubMenu-Subject-RecommendedSystem/"><p id="smallest">推荐系统</p></a></li>
+                              <li><a href="/SubMenu-Subject-Linguistic/"><p id="smallest">语言学</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="second"><a class="hsubs" href="#">《 框架 》</a>
+                          <ul class="second">
+                              <li><a href="/SubMenu-Frame-MachineLearning/"><p id="smallest">机器学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-DeepLearning/"><p id="smallest">深度学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GNN/"><p id="smallest">图神经网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-TransferLearning/"><p id="smallest">迁移学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ReinforcementLearning/"><p id="smallest">强化学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-GAN/"><p id="smallest">对抗生成网络</p></a></li>
+                              <li><a href="/SubMenu-Frame-MetaLearning/"><p id="smallest">元学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-WeeklySupervisedLearning/"><p id="smallest">弱监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-SelfSupervisedLearning/"><p id="smallest">自监督学习</p></a></li>
+                              <li><a href="/#"><p id="smallest">无监督学习</p></a></li>
+                              <li><a href="/SubMenu-Frame-ContrastiveLearning/"><p id="smallest">对比学习</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="third"><a class="hsubs" href="#">《 分支 》</a>
+                          <ul class="third">
+                              <li><a href="/SubMenu-Subdomain-FeatureEngineering/"><p id="smallest">特征工程</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextProcessing/"><p id="smallest">文本预处理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-RepresentationLearning"><p id="smallest">表示学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-PreTraining/"><p id="smallest">预训练</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-LanguageModel/"><p id="smallest">语言模型</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Segmentation/"><p id="smallest">分词</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-POS/"><p id="smallest">词性标注</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-NER/"><p id="smallest">命名实体识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextErrorCorrection"><p id="smallest">文本纠错</p></a></li>
+                              <li><a href="#"><p id="smallest">语句改写</p></a></li>
+                              <li><a href="#"><p id="smallest">语种识别</p></a></li>
+                              <li><a href="#"><p id="smallest">关键词提取</p></a></li>
+                              <li><a href="#"><p id="smallest">敏感词过滤</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-DependencyParse/"><p id="smallest">依存分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ConstituencyParse/"><p id="smallest">成分解析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SentimentAnalysis/"><p id="smallest">情感分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-IntentRecognition/"><p id="smallest">意图识别</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-SemanticParsing/"><p id="smallest">语义分析</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-CoReferenceResolution/"><p id="smallest">指代消解</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextClassification/"><p id="smallest">文本分类</p></a></li>
+                              <li><a href="#"><p id="smallest">文本聚类</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TextMatch/"><p id="smallest">文本匹配</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLG/"><p id="smallest">文本生成</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-Summarization/"><p id="smallest">文本摘要</p></a></li>
+                              <li><a href="#"><p id="smallest">文本蕴含</p></a></li> 
+                              <li><a href="/SubMenu-Subdomain-IE/"><p id="smallest">信息抽取</p></a></li>       
+                              <li><a href="#"><p id="smallest">风格转换</p></a></li>  
+                              <li><a href="#"><p id="smallest">观点挖掘</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-MultitaskLearning/"><p id="smallest">多任务学习</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-ReadingComprehension"><p id="smallest">阅读理解</p></a></li>
+                              <li><a href="#"><p id="smallest">繁简转化</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-NLI/"><p id="smallest">自然语言推理</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-QA/"><p id="smallest">问答系统</p></a></li>
+                              <li><a href="/SubMenu-Subdomain-TaskBot/"><p id="smallest">任务型对话</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ChatBot/"><p id="smallest">闲聊系统</p></a></li>  
+                              <li><a href="/SubMenu-Subdomain-ML/"><p id="smallest">机器翻译</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="forth"><a class="hsubs" href="#">《 主题 》</i></a>
+                          <ul class="forth">
+                            <li><a href="/SubMenu-Theme-Knowledge/"><p id="smallest">知识 + </p></a></li>
+                            <li><a href="/SubMenu-Theme-Multimodals/"><p id="smallest">多模态</p></a></li>
+                            <li><a href="/SubMenu-Theme-Explainable/"><p id="smallest">可解释性</p></a></li>
+                            <li><a href="/SubMenu-Theme-ZeroShot/"><p id="smallest">零资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-FewShot/"><p id="smallest">低资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-RichSource/"><p id="smallest">高资源</p></a></li>
+                            <li><a href="/SubMenu-Theme-Cause/"><p id="smallest">因果逻辑</p></a></li>
+                            <li><a href="/SubMenu-Theme-ModelCompression/"><p id="smallest">模型压缩与加速</p></a></li>
+                            <li><a href="/SubMenu-Theme-DataAugmentation/"><p id="smallest">数据增强</p></a></li>
+                            <li><a href="/SubMenu-Theme-SourceandEvaluation/"><p id="smallest">资源和评估</p></a></li>
+                          </ul>
+                      </li>
+                      <li id="fifth"><a class="hsubs" href="#">《 数学 》</a>
+                          <ul class="fifth">
+                            <li><a href="/SubMenu-Subject-Math/"><p id="smallest">《 总览 》</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Analysis/"><p id="smallest">Ψ 分析</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Algebra/"><p id="smallest">Φ 代数</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Geometry-Topology/"><p id="smallest">Ω 几何与拓扑</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Number-Theory/"><p id="smallest">ξ 数论</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Probability-Statistic/"><p id="smallest">Σ 概率与统计</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Dynamic-System/"><p id="smallest">Θ 动力系统</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Fundamental/"><p id="smallest">ζ 基础数学</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Physics/"><p id="smallest">ε 数学物理</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Differential-Equations/"><p id="smallest">δ 微分方程</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Discrete-Math/"><p id="smallest">Γ 离散数学</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-Operations/"><p id="smallest">β 运筹学</p></a></li>
+                            <li><a href="/SubMenu-Subject-Math-History/"><p id="smallest">α 科普及历史</p></a></li>
+                          </ul>
+                      </li>
+                      <div id="lavalamp"><img src="/images/lavalamp.png"></div>
+                  </ul>
+                  <!--submenu目录结束-->
+      </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">《 几何与拓扑 》</h1>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <div class="subtitle">Geometry and Topology</div>
+
+<center><div style="width: 60%"><img src="/DIY/picture/【博文】几何与拓扑（头图）.png" alt="link"></div></center>
+
+<a id="more"></a>
+<h2 id="一、几何概览"><a href="#一、几何概览" class="headerlink" title="一、几何概览"></a>一、几何概览</h2><h3 id="1-1-几何整体概览"><a href="#1-1-几何整体概览" class="headerlink" title="1.1 几何整体概览"></a>1.1 几何整体概览</h3><h3 id="1-2-对子领域间关系的理解"><a href="#1-2-对子领域间关系的理解" class="headerlink" title="1.2 对子领域间关系的理解"></a>1.2 对子领域间关系的理解</h3><ul>
+<li>区分几何和拓扑的一个东西是研究对象是否具有几何结构，比如度量结构、复结构、辛结构，等等，或者是几种结构混在一起；</li>
+<li>流形是曲面的高维推广。之所以在学现代微分几何以前数学系会安排一门“微分几何”的本科课程来学习曲线曲面论，就是为了让你熟悉曲面这个流形的原型。微分几何会用到微积分是因为曲率的定义需要微分，回忆一下，空间曲线的曲率是什么？本质上就是切向量的导数，也就是曲线本身的二阶导数。当然实际上在不光滑的奇异空间上我们也可以定义某种类型的曲率记号，比如Alexandrov space, CAT(0) space 等等，但是那个就比流形还要抽象了。</li>
+<li>欧氏几何是平坦的微分几何，就是没有曲率，而且整个空间的拓扑也是平凡的。和群论有联系是因为几何里面有很多对称性，而群论是刻画对称性的工具，所以微分几何里面会有isometry group, holonomy group等等，当然基本群同调群这种拓扑不变量也会经常用到。</li>
+</ul>
+<h3 id="1-3-几何子领域"><a href="#1-3-几何子领域" class="headerlink" title="1.3 几何子领域"></a>1.3 几何子领域</h3><h4 id="1-3-1-解析几何"><a href="#1-3-1-解析几何" class="headerlink" title="1.3.1 解析几何"></a>1.3.1 解析几何</h4><p><b id="em">国外很多数学专业没有开设解析几何而我国一直都有解析几何，为什么要学解析几何？解析几何有什么用</b></p>
+<ul>
+<li>解析几何当然有用，但必须要清楚什么是解析几何以及解析几何应该怎么教。首先，解析几何应该看成是$R^n$，尤其是2、3维空间中的线性代数，和线性代数存在明显的对应关系，比如解析几何里面的数量积是线性代数里面内积限制在3维情况下的特殊情况，外积本质上是张量。至于仿射空间和射影空间，都会在后续课程里面遇到，比如代数几何。所以解析几何意义在于给众多相关数学对象给出了2维，3维情况下的特例。但为什么我们不直接讲线性代数和高维的射影几何等等？这主要是因为不管是数学的发展还是我们对数学的理解始终都是按照从具体到抽象，再从抽象到具体的形式演进的，当然，其中的抽象和具体的层次都是不断上升的，比如对于中学生，3维向量是抽象的，但对于大一大二学生，3维向量就是具体的，而仿射、射影空间和代数簇就算抽象的了，对于大三学生，仿射、射影空间和代数簇是具体的，这时候，概型才算是抽象的，但对于硕士来说，这些都是很具体的。在每次抽象程度提高的过程中，都需要在前一阶段的抽象化基础上掌握足够多的例子，如果不知道足够多的例子，是很难理解抽象概念的。所以数学系的教学当然不能回避抽象，当然也要现代化，但仍然讲究逐步抽象的原则。比如我们不能直接给大一学生第一节课就讲范畴论。而对于数学研究本身，也需要知道足够多的例子，以便于在进行抽象的逻辑论证的时候不断对比，以便于验证正确性或者发现证明思路，而避免陷入盲目的抽象推理中；</li>
+</ul>
+<h4 id="1-3-2-微分几何"><a href="#1-3-2-微分几何" class="headerlink" title="1.3.2 微分几何"></a>1.3.2 微分几何</h4><p>概念：研究微分流形（光滑曲线曲面，光滑流形）的几何性质，是广义相对论基础；</p>
+<h5 id="1-3-2-1-子领域间关系的理解"><a href="#1-3-2-1-子领域间关系的理解" class="headerlink" title="1.3.2.1 子领域间关系的理解"></a>1.3.2.1 子领域间关系的理解</h5><ul>
+<li>古典微分几何为现代微分几何提供了更形象的实例，是现代微分几何形成的基础；</li>
+<li>整体微分几何：法国数学家E·嘉当在微分几何中强调联络的概念，建立了外微分的概念。这是整体微分几何的奠基性的工作。随后，中国数学家陈省身从外微分的观点出发，推广了曲面上的高斯-博内定理。从此微分几何成为现代数学不可缺少的领域；</li>
+<li>微分流形：也称为光滑流形（smooth manifold），是拓扑学和几何学中一类重要的空间，是带有微分结构的拓扑流形。 微分流形是微分几何与微分拓扑的主要研究对象，是三维欧式空间中曲线和曲面概念的推广，可以有更高的维数，而不必有距离和度量的概念；</li>
+</ul>
+<h5 id="1-3-2-2-分类"><a href="#1-3-2-2-分类" class="headerlink" title="1.3.2.2 分类"></a>1.3.2.2 分类</h5><ul>
+<li>古典微分几何<ul>
+<li>研究三维空间中的曲线和曲面；</li>
+</ul>
+</li>
+<li>现代微分几何<ul>
+<li>研究高维流形的性质；</li>
+</ul>
+</li>
+</ul>
+<h5 id="1-3-2-3-子领域"><a href="#1-3-2-3-子领域" class="headerlink" title="1.3.2.3 子领域"></a>1.3.2.3 子领域</h5><ul>
+<li>黎曼几何 —— 黎曼几何以黎曼流形为主要研究对象；</li>
+<li>复几何 —— 研究的对象是复流形</li>
+<li>辛几何 —— 这是研究辛流形的学科</li>
+<li>切触几何 —— 这是辛几何在奇数维上的对应物</li>
+<li>芬斯勒几何 —— 以芬斯勒流形为主要研究对象</li>
+</ul>
+<h5 id="1-3-2-4-资料及其评述"><a href="#1-3-2-4-资料及其评述" class="headerlink" title="1.3.2.4 资料及其评述"></a>1.3.2.4 资料及其评述</h5><ul>
+<li><div><div class="fold_hider"><div class="close hider_title">微分几何教材</div></div><div class="fold">
+<p><a href="https://zhuanlan.zhihu.com/p/116711920" target="_blank" rel="noopener">原链接</a></p>
+<center><div id="fold"><img src="/DIY/picture/【博文】几何与拓扑（01）.png"></div> </center>
+
+</div></div>
+</li>
+</ul>
+<h4 id="1-3-3-代数几何"><a href="#1-3-3-代数几何" class="headerlink" title="1.3.3 代数几何"></a>1.3.3 代数几何</h4><h5 id="1-3-3-1-学习路线"><a href="#1-3-3-1-学习路线" class="headerlink" title="1.3.3.1 学习路线"></a>1.3.3.1 学习路线</h5><p><b id="em">理论上的前置课程：</b></p>
+<ul>
+<li>抽象代数、交换代数、同调代数。但是你只学这些就去学看代数几何会让你感受到一股像是拉屎拉不出来卡住一般恶心的感觉。</li>
+<li>实际上：再加上代数拓扑、微分几何、复分析、多复变函数。</li>
+</ul>
+<p><b id="line">如果你不是想学全部的代数几何，只是想入个门看一下的话，可以先看代数曲线，看看代数的知识是怎么用到几何理来的</b>，按照伍鸿熙的说法，代数曲线有三种理解方式：（1）代数几何角度；（2）复变函数角度；（3）代数数论角度。你可以从这三方面的任意一面入门；<br><b>1、代数几何角度</b>：学抽象代数和一点点交换代数，然后去看Fulton的代数曲线并做完全部的习题。Fulton的这本书我觉得是世界上最好的代数几何入门教材，自带习题，叙述非常简单，而且更重要的是，在简单的基础上语言非常地现代，能让你迅速地与真正的代数几何教材（比如Harshorne)进行衔接，实在是居家旅行，杀人放火必备之书。<br><b>2、分析角度</b>：学一点复变函数复分析，然后看黎曼曲面，这样的书很多，GTM71、GTM81、Gunning的黎曼面、伍鸿熙的黎曼曲面、李忠的复分析、梅家强的黎曼面等等，当然这些书虽然都是利用复变函数理论但侧重不同，GTM71和GTM81、Gunning、李忠的复分析都偏重分析，使用分析语言，比如Weyl引理、Hilbert空间方法等等，伍鸿熙的书则基本上是把多复变的方法应用到黎曼面上，比如上同调和Hodge定理，当然他们本质上是一致的。<br><b>3、数论角度</b>：依旧是学抽象代数和一点交换代数，会代数数论更好，这样的书可以参照冯克勤的算术曲线、李文卿的数论及其应用、S.Lang的GTM89和An Invitation to Arithmetic Geometry, Dino Lorenzini。这样的方法主要靠代数数论中的阿代尔和依戴尔、L函数。利用Tate的博士论文的方法可以把Riemann-Roch定理化成其上的Possion求和的形式。这种方法非常有趣，自守L函数满足的函数方程和自守性的关系其实是它的推广。<br><br>学习代数曲线的这些经典理论对代数几何还是很有益处的，而且适合入门，像Hartshorne说的：如果你甚至不知道黎曼曲面是一维正则概型的话，那就算熟知了概型理论又有什么用呢？学过代数曲线之后可以开始读Hartshorne的GTM52或者EGA。EGA自然不用多说，GTM52虽然经常被人骂但是其实读它也实在是没办法的事情，因为除了Hartshorne（和EGA）之外没有多少完整地介绍代数几何的教材……大部分关于代数几何的书都在把Hartshorne当做后续教材、前置教材或者超链接的目标教材，比如Liu qing、GTM76等等。当然Hartshorne虽然是必须读的书当你仍然可以不选择它作为概型的初始教材，其他的选项有Liu qing的代数几何、Mumford的Red Book等等，但是想看上同调的话基本还是要看GTM52（当然如果忍受得住导出范畴的话可以考虑Illusie，或者你懂法语那有EGA4）。</p>
+<h5 id="1-3-3-2-学习资料"><a href="#1-3-3-2-学习资料" class="headerlink" title="1.3.3.2 学习资料"></a>1.3.3.2 学习资料</h5><p><a href="https://mathoverflow.net/questions/2446/best-algebraic-geometry-textbook-other-than-hartshorne" target="_blank" rel="noopener">原链接</a></p>
+<ul>
+<li><p><b id="em">EGA</b>：圣经</p>
+</li>
+<li><p><b id="em"><a href="https://stacks.math.columbia.edu/browse" target="_blank" rel="noopener">The Stacks Project</a></b>：字典</p>
+</li>
+<li><p><b id="em">CLASSICAL</b></p>
+<ul>
+<li><b>Beltrametti-Carletti-Gallarati-Monti</b>. “Lectures on Curves, Surfaces and Projective Varieties” which starts from the very beginning with a classical geometric style. Very complete (proves Riemann-Roch for curves in an easy language) and concrete in classic constructions needed to understand the reasons about why things are done the way they are in advanced purely algebraic books. There are very few books like this and they should be a must to start learning the subject. (Check out <a href="http://www.dima.unige.it/~beltrame/Math.Rev.pdf" target="_blank" rel="noopener">Dolgachev’s review</a>.)</li>
+</ul>
+</li>
+<li><p><b id="em">HALF-WAY/UNDERGRADUATE</b></p>
+<ul>
+<li><b>Shafarevich</b> - “Basic Algebraic Geometry” vol. 1 and 2. They may be the most complete on foundations for varieties up to introducing schemes and complex geometry, so they are very useful before more abstract studies. But the problems are hard for many beginners. They do not prove Riemann-Roch (which is done classically without cohomology in the previous recommendation) so a modern more orthodox course would be Perrin’s “Algebraic Geometry, An Introduction”, which in fact introduce cohomology and prove RR.</li>
+</ul>
+</li>
+<li><p><b id="em">ADVANCED UNDERGRADUATE</b></p>
+<ul>
+<li><b>Holme</b> - “A Royal Road to Algebraic Geometry”. This new title is wonderful: it starts by introducing algebraic affine and projective curves and varieties and builds the theory up in the first half of the book as the perfect introduction to Hartshorne’s chapter I. The second half then jumps into a categorical introduction to schemes, bits of cohomology and even glimpses of intersection theory.</li>
+</ul>
+</li>
+<li><p><b id="em">ONLINE NOTES</b></p>
+<ul>
+<li><b>Gathmann</b> - “Algebraic Geometry” which can be found <a href="https://www.mathematik.uni-kl.de/~gathmann/de/alggeom.php" target="_blank" rel="noopener">here</a>. Just amazing notes; short but very complete, dealing even with schemes and cohomology and proving Riemann-Roch and even hinting Hirzebruch-R-R. It is the best free course in my opinion, to get enough algebraic geometry background to understand the other more advanced and abstract titles.  </li>
+<li><b>R. Vakil</b> - “<a href="http://math.stanford.edu/~vakil/216blog/" target="_blank" rel="noopener">The Rising Sea: Foundations Of Algebraic Geometry</a>“ Notes, For an abstract algebraic approach, a freely available online course is available by the nicely done.</li>
+</ul>
+</li>
+<li><p><b id="em">GRADUATE FOR ALGEBRISTS AND NUMBER THEORISTS</b></p>
+<ul>
+<li><b>Liu Qing</b> - “Algebraic Geometry and Arithmetic Curves”. It is a very complete book even introducing some needed commutative algebra and preparing the reader to learn arithmetic geometry like Mordell’s conjecture, Faltings’ or even Fermat-Wiles Theorem.</li>
+</ul>
+</li>
+<li><p><b id="em">GRADUATE FOR GEOMETERS</b></p>
+<ul>
+<li><b>Griffiths; Harris</b> - “Principles of Algebraic Geometry”. By far the best for a complex-geometry-oriented mind. Also useful coming from studies on several complex variables or differential geometry. It develops a lot of algebraic geometry without so much advanced commutative and homological algebra as the modern books tend to emphasize.</li>
+</ul>
+</li>
+<li><p><b id="em">BEST ON SCHEMES</b></p>
+<ul>
+<li><b>Görtz; Wedhorn</b> - Algebraic Geometry I, Schemes with Examples and Exercises. Tons of stuff on schemes; more complete than Mumford’s Red Book (For an online free alternative check Mumfords’ Algebraic Geometry II <a href="http://www.math.upenn.edu/~chai/624_08/math624_08.html" target="_blank" rel="noopener">unpublished notes</a> on schemes.). It does a great job complementing Hartshorne’s treatment of schemes, above all because of the more solvable exercises.</li>
+</ul>
+</li>
+<li><p><b id="em">UNDERGRADUATE ON ALGEBRAIC CURVES</b></p>
+<ul>
+<li><b>Fulton</b> - “Algebraic Curves, an Introduction to Algebraic Geometry” which can be found <a href="http://www.math.lsa.umich.edu/~wfulton/CurveBook.pdf" target="_blank" rel="noopener">here</a>. It is a classic and although the flavor is clearly of typed concise notes, it is by far the shortest but thorough book on curves, which serves as a very nice introduction to the whole subject. It does everything that is needed to prove Riemann-Roch for curves and introduces many concepts useful to motivate more advanced courses.</li>
+</ul>
+</li>
+<li><p><b id="em">GRADUATE ON ALGEBRAIC CURVES</b></p>
+<ul>
+<li><b>Arbarello; Cornalba; Griffiths; Harris</b> - “Geometry of Algebraic Curves” vol 1 and 2. This one is focused on the reader, therefore many results are stated to be worked out. So some people find it the best way to really master the subject. Besides, the vol. 2 has finally appeared making the two huge volumes a complete reference on the subject.</li>
+</ul>
+</li>
+<li><p><b id="em">INTRODUCTORY ON ALGEBRAIC SURFACES</b></p>
+<ul>
+<li><b>Beauville</b> - “Complex Algebraic Surfaces”. I have not found a quicker and simpler way to learn and clasify algebraic surfaces. The background needed is minimum compared to other titles.</li>
+</ul>
+</li>
+<li><p><b id="em">ADVANCED ON ALGEBRAIC SURFACES</b></p>
+<ul>
+<li><b>Badescu</b> - “Algebraic Surfaces”. Excellent complete and advanced reference for surfaces. Very well done and indispensable for those needing a companion, but above all an expansion, to Hartshorne’s chapter.</li>
+</ul>
+</li>
+<li><p><b id="em">ON HODGE THEORY AND TOPOLOGY</b></p>
+<ul>
+<li><b>Voisin</b> - “Hodge Theory and Complex Algebraic Geometry” vols. I and II. The first volume can serve almost as an introduction to complex geometry and the second to its topology. They are becoming more and more the standard reference on these topics, fitting nicely between abstract algebraic geometry and complex differential geometry.</li>
+</ul>
+</li>
+<li><p><b id="em">INTRODUCTORY ON MODULI AND INVARIANTS</b></p>
+<ul>
+<li><b>Mukai</b> - “An Introduction to Invariants and Moduli”. Excellent but extremely expensive hardcover book. When a cheaper paperback edition is released by Cambridge Press any serious student of algebraic geometry should own a copy since, again, it is one of those titles that help motivate and give conceptual insights needed to make any sense of abstract monographs like the next ones.</li>
+</ul>
+</li>
+<li><p><b id="em">ON MODULI SPACES AND DEFORMATIONS</b></p>
+<ul>
+<li><b>Hartshorne</b> - “Deformation Theory”. Just the perfect complement to Hartshorne’s main book, since it did not deal with these matters, and other books approach the subject from a different point of view (e.g. geared to complex geometry or to physicists) than what a student of AG from Hartshorne’s book may like to learn the subject.</li>
+</ul>
+</li>
+<li><p><b id="em">ON GEOMETRIC INVARIANT THEORY</b></p>
+<ul>
+<li><b>Mumford; Fogarty; Kirwan</b> - “Geometric Invariant Theory”. Simply put, it is still the best and most complete. Besides, Mumford himself developed the subject. Alternatives are more introductory lectures by Dolgachev.</li>
+</ul>
+</li>
+<li><p><b id="em">ON INTERSECTION THEORY</b></p>
+<ul>
+<li><b>Fulton</b> - “Intersection Theory”. It is the standard reference and is also cheap compared to others. It deals with all the material needed on intersections for a serious student going beyond Hartshorne’s appendix; it is a good reference for the use of the language of characteristic classes in algebraic geometry, proving Hirzebruch-Riemann-Roch and Grothendieck-Riemann-Roch among many interesting results.</li>
+</ul>
+</li>
+<li><p><b id="em">ON SINGULARITIES</b></p>
+<ul>
+<li><b>Kollár</b> - Lectures on Resolution of Singularities. Great exposition, useful contents and examples on topics one has to deal with sooner or later. As a fundamental complement check <a href="http://www.ams.org/journals/bull/2003-40-03/S0273-0979-03-00982-0/home.html" target="_blank" rel="noopener">Hauser’s wonderful paper</a> on the Hironaka theorem.</li>
+</ul>
+</li>
+<li><p><b id="em">ON POSITIVITY</b></p>
+<ul>
+<li><b>Lazarsfeld</b> - Positivity in Algebraic Geometry I: Classical Setting: Line Bundles and Linear Series and Positivity in Algebraic Geometry II: Positivity for Vector Bundles and Multiplier Ideals. Amazingly well written and unique on the topic, summarizing and bringing together lots of information, results, and many many examples.</li>
+</ul>
+</li>
+<li><p><b id="em">INTRODUCTORY ON HIGHER-DIMENSIONAL VARIETIES</b></p>
+<ul>
+<li><b>Debarre</b> - “Higher Dimensional Algebraic Geometry”. The main alternative to this title is the new book by <b>Hacon/Kovács</b>‘ “Classifiaction of Higher-dimensional Algebraic Varieties” which includes recent results on the classification problem and is intended as a graduate topics course.</li>
+</ul>
+</li>
+<li><p><b id="em">ADVANCED ON HIGHER-DIMENSIONAL VARIETIES</b></p>
+<ul>
+<li><b>Kollár; Mori</b> - Birational Geometry of Algebraic Varieties. Considered as harder to learn from by some students, it has become the standard reference on birational geometry.</li>
+</ul>
+</li>
+</ul>
+<p><br></p>
+<hr>
+
+
+
+<h2 id="二、拓扑概览"><a href="#二、拓扑概览" class="headerlink" title="二、拓扑概览"></a>二、拓扑概览</h2><h3 id="2-1-拓扑整体概览"><a href="#2-1-拓扑整体概览" class="headerlink" title="2.1 拓扑整体概览"></a>2.1 拓扑整体概览</h3><h3 id="2-2-对子领域间关系的理解"><a href="#2-2-对子领域间关系的理解" class="headerlink" title="2.2 对子领域间关系的理解"></a>2.2 对子领域间关系的理解</h3><h3 id="2-3-拓扑子领域"><a href="#2-3-拓扑子领域" class="headerlink" title="2.3 拓扑子领域"></a>2.3 拓扑子领域</h3><p><b id="em">资料</b></p>
+<ul>
+<li><a href="/DIY/pdf/【博文】巴黎十三大M2一年的代数拓扑课程.pdf">巴黎十三大M2一年的代数拓扑课程，共4门，逐渐深入</a></li>
+<li><a href="/DIY/pdf/【博文】Book list of Topology（May）.pdf">《代数拓扑简明教程》中May的推荐阅读清单</a></li>
+<li><a href="/DIY/pdf/【博文】Book list of Topology（Hatcher）.pdf">Allen Hatcher写的拓扑学书单（2003年以前的书目）</a></li>
+</ul>
+<p><b id="em">子领域</b></p>
+<ul>
+<li><b>一般拓扑学</b>：建立拓扑的基础，并研究拓扑空间的性质，以及与拓扑空间相关的概念。一般拓扑学亦被称为点集拓扑学，被用于其他数学领域（如紧致性与连通性等主题）之中；</li>
+<li><b>代数拓扑学</b>：是用抽象代数的方法来研究拓扑的一门数学分支，它试图将拓扑问题转换成一个代数问题，然后利用代数的相关理论工具来加以解决。很多时候，拓扑问题非常抽象复杂，轻易超乎人类的想象力，并且会使得直觉也不再可靠。代数拓扑定义了从拓扑范畴到代数范畴的一个态射，此态射将拓扑空间映成了群，把拓扑映射变成了群同态。至为重要的是，这个态射是“函子”的，这意味着这种范畴间的转化是“保结构的”，信息被尽量保留。<ul>
+<li>分支：<ul>
+<li>同伦群</li>
+<li>同调</li>
+<li>上同调</li>
+<li>流形</li>
+<li>纽结理论</li>
+<li>复形</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><b>微分拓扑学</b>：研究微分流形和可微映射的一个数学分支，是不同于代数拓扑的一个独立的数学分支，但它与代数拓扑的关系极为密切：解决微分拓扑问题的许多基本工具，例如同调群、同伦群都是从代数拓扑中借用过来的。</p>
+<ul>
+<li>子领域<ul>
+<li>微<ul>
+<li>微分同胚（2个页面）</li>
+<li>微分形式（12个页面）</li>
+</ul>
+</li>
+<li>辛<ul>
+<li>辛拓扑（6个页面）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><b>几何拓扑学</b>：主要研究流形与其对其他流形的嵌入。几何拓扑学中一个特别活跃的领域为“低维拓扑学”，研究四维以下的流形。几何拓扑学亦包括“纽结理论”，研究数学上的纽结；</p>
+<ul>
+<li>资料：<ul>
+<li>《Three-dimensional geometry and topology》 - Thurston</li>
+</ul>
+</li>
+<li>作为几何拓扑开风气之先的人，Poincare几何化猜想的提出者的著作，即便晦涩，你，值得拥有；</li>
+</ul>
+</li>
+<li><b>组合拓扑学</b><ul>
+<li>资料：<ul>
+<li>《Classical topology and combinatorial group theory》 - Stillwell<ul>
+<li>这类书不多，硬是要找可以找一本。Stillwell的东西通常是浅显有余深度不足，在现在代数拓扑和微分拓扑都略显颓势，经典组合拓扑慢慢回潮的状况下相信这类书应该会变多；</li>
+</ul>
+</li>
+<li>《Combinatorial topology》 - Aleksandrov<ul>
+<li>搞组合拓扑的大都是苏联人，因为他们的祖师爷是Aleksandrov，即便是上个世纪此公一直在点集拓扑里面转悠，但是功力深厚，所以欧美的组合拓扑在我看来还是略逊一筹，但是苏联在Aleksandrov死后却没有很好的接续这个传统，直到上个世纪80年代Postnikov在Moscow重开拓扑讨论班，才产生了Novikov这种大将，但是主题也已经是代数拓扑了，颇有岁岁年年人不同之怀；</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+     <i class="fa fa-drupal"></i>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="0 丨 1" />
+            
+              <p class="site-author-name" itemprop="name">0 丨 1</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives">
+                
+                    <span class="site-state-item-count">56</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/Menu-Category/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/Menu-Tag/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">39</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="‹‹ 数丨语 ››">‹‹ 数丨语 ››</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="简 单，">简 单，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="执 拗，">执 拗，</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://lego4language.gitee.io/" target="_blank" title="一 直 到 老 。">一 直 到 老 。</a>
+                  
+                </span>
+              
+            </div>
+          
+
+
+
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-apple"></i>
+                《 滴丨答 》
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/BV1N741177BJ?p=2" title="徒手攀岩" target="_blank">徒手攀岩</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av4703308?from=search&seid=2865836903687886974" title="四弦人生" target="_blank">四弦人生</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep333948?theme=movie%3Ffrom%3Dsearch&seid=16732134441560039998" title="知无涯者" target="_blank">知无涯者</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/bangumi/play/ep340751?theme=movie%3Ffrom%3Dsearch&seid=960190305093062102" title="澄沙之味" target="_blank">澄沙之味</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.bilibili.com/video/av33429330?from=search&seid=15360553913887371012" title="发现的乐趣" target="_blank">发现的乐趣</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="" title="有熊谷守一在的地方" target="_blank">有熊谷守一在的地方</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、几何概览"><span class="nav-text">一、几何概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-几何整体概览"><span class="nav-text">1.1 几何整体概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-对子领域间关系的理解"><span class="nav-text">1.2 对子领域间关系的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-几何子领域"><span class="nav-text">1.3 几何子领域</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-1-解析几何"><span class="nav-text">1.3.1 解析几何</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-2-微分几何"><span class="nav-text">1.3.2 微分几何</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-1-子领域间关系的理解"><span class="nav-text">1.3.2.1 子领域间关系的理解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-2-分类"><span class="nav-text">1.3.2.2 分类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-3-子领域"><span class="nav-text">1.3.2.3 子领域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-2-4-资料及其评述"><span class="nav-text">1.3.2.4 资料及其评述</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-3-代数几何"><span class="nav-text">1.3.3 代数几何</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-3-1-学习路线"><span class="nav-text">1.3.3.1 学习路线</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-3-3-2-学习资料"><span class="nav-text">1.3.3.2 学习资料</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、拓扑概览"><span class="nav-text">二、拓扑概览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-拓扑整体概览"><span class="nav-text">2.1 拓扑整体概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-对子领域间关系的理解"><span class="nav-text">2.2 对子领域间关系的理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-拓扑子领域"><span class="nav-text">2.3 拓扑子领域</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <!--<div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-drupal"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0 丨 1</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">352k</span>
+  
+
+  
+</div>
+-->
+
+<!--
+-->
+
+<!--
+
+
+
+
+  <div class="theme-info">主题 – <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.4.1</div>
+-->
+
+<img class='footerpicture' src="/images/footer.png">
+
+<!--
+-->
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
