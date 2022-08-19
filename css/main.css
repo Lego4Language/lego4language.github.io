@@ -3443,7 +3443,7 @@ ul.forth li {
   }
 }
 ul.fifth {
-  width: 270%;
+  width: 200%;
   float: left !important;
 }
 ul.fifth a {
@@ -3455,6 +3455,9 @@ ul.fifth li {
   display: inline !important;
 }
 @media (max-width: 767px) {
+  ul.fifth {
+    width: 250%;
+  }
   ul.fifth a {
     padding-top: 0 !important;
   }
