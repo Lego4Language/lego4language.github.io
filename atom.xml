@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lego4language.github.io/"/>
-  <updated>2022-09-12T13:49:52.973Z</updated>
+  <updated>2022-10-31T07:07:05.039Z</updated>
   <id>https://lego4language.github.io/</id>
   
   <author>
@@ -17,22 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>手工书籍制作</title>
-    <link href="https://lego4language.github.io/2022/09/06/%E4%B8%AA%E4%BA%BA%E4%B9%A6%E7%B1%8D%E5%88%B6%E4%BD%9C/"/>
-    <id>https://lego4language.github.io/2022/09/06/个人书籍制作/</id>
-    <published>2022-09-05T16:00:00.000Z</published>
-    <updated>2022-09-12T13:49:52.973Z</updated>
+    <title>指令集架构与CPU</title>
+    <link href="https://lego4language.github.io/2022/10/31/%E6%8C%87%E4%BB%A4%E9%9B%86%E6%9E%B6%E6%9E%84%E4%B8%8ECPU/"/>
+    <id>https://lego4language.github.io/2022/10/31/指令集架构与CPU/</id>
+    <published>2022-10-30T16:00:00.000Z</published>
+    <updated>2022-10-31T07:07:05.039Z</updated>
     
-    <content type="html"><![CDATA[<center><div style="width: 50%"><img src="/DIY/picture/【博文】个人书籍制作（头图）.png" alt="link"></div></center><a id="more"></a><h2 id="一、初衷与原由"><a href="#一、初衷与原由" class="headerlink" title="一、初衷与原由"></a>一、初衷与原由</h2><h3 id="1-1-原因"><a href="#1-1-原因" class="headerlink" title="1.1 原因"></a>1.1 原因</h3><ul><li><p>网点打印书虽然方便，但是很多地方自己并不满意，比如：</p><ul><li>打印纸张并不能自己决定；</li><li>装胶处理并不牢固，容易脱页；</li><li>书脊折痕并不清晰；</li><li>与打印店交流可能出现偏差；</li><li>…</li></ul></li><li><p>对于书籍的定制化自由度更大；</p></li><li>以后书籍出现问题能够自己修复；</li></ul><h3 id="1-2-目的"><a href="#1-2-目的" class="headerlink" title="1.2 目的"></a>1.2 目的</h3><ul><li>一方面是作为一个兴趣爱好来培养，增加生活乐趣，另一方面，个人认为自己动手将作为知识载体的书本精心地制作出来本身就是一件非常有意义的事，制作出来的书可以作为工艺品摆在家里，既起到了装饰作用，也让自己有一种成就感；</li><li>了解一门产业知识（印刷产业）；</li></ul><hr><h2 id="二、制作工序"><a href="#二、制作工序" class="headerlink" title="二、制作工序"></a>二、制作工序</h2><h3 id="2-1-设计封面、封底和书脊"><a href="#2-1-设计封面、封底和书脊" class="headerlink" title="2.1 设计封面、封底和书脊"></a>2.1 设计封面、封底和书脊</h3><h3 id="2-2-打印封面（包含封底、书脊）和内页"><a href="#2-2-打印封面（包含封底、书脊）和内页" class="headerlink" title="2.2 打印封面（包含封底、书脊）和内页"></a>2.2 打印封面（包含封底、书脊）和内页</h3><ul><li><p>所需材料和设备：</p><ul><li>道林纸、铜版纸</li><li>打印机一台</li></ul></li><li><p>制作过程：</p><ul><li>用打印机将封面和内页打印出来</li></ul></li><li><p>注意事项：</p><ul><li>打印机应该选择彩色喷墨打印机，理由如下：<ul><li>喷墨打印机在打印彩色图片时比激光打印机打印出来的颜色更靓丽，更鲜艳；</li><li>喷墨打印机技术根据原理又分为以爱普生、兄弟为代表的“微压电喷”技术和以惠普、佳能为代表的“热发泡”技术，各自优缺点如下：<ul><li>从打印效果来看，热发泡技术打印的图片颜色上会偏暖，而微压电喷会偏冷色调；</li><li>从成本来看，微压电喷的硬件不易损坏，但是一旦损坏，维修成本会很高，发热泡的喷头很容易出现堵塞等问题，但是相应的具有维护更换零部件，更易更换；</li></ul></li><li>喷墨打印机又分为4色和6色的，6色相对4色来说打印效果肯定更好，但是成本也更高；</li></ul></li><li>注意打印机参数和电子版设计参数是否相容，否则影响打印效果；</li></ul></li></ul><h3 id="2-3-封面铜版纸处理"><a href="#2-3-封面铜版纸处理" class="headerlink" title="2.3 封面铜版纸处理"></a>2.3 封面铜版纸处理</h3><ul><li><p>所需材料和设备：</p><ul><li>纸板（针对硬装书）</li><li>热、冷裱膜，各自优缺点<ul><li>热裱膜因为加热处理，贴合度更高，图片颜色更加靓丽，但是工艺复杂；</li><li>冷裱膜直接贴合虽然操作方便，但是容易起泡，图片效果相对较差；</li></ul></li><li>覆膜机一台</li><li>压痕机一台</li></ul></li><li><p>制作过程：</p><ul><li>用覆膜机将铜版纸封面覆膜；</li><li>在封面上做出折痕；</li><li>将封面站在纸板上（硬装书需要）</li></ul></li></ul><ul><li>注意事项：<ul><li>覆膜之后再压痕，压痕机并不是必要的，可以使用压板手动压，不过还是看做出来的效果之后再决定是否需要压痕机；</li></ul></li></ul><h3 id="2-4-内页锁线（针对锁线胶装书）"><a href="#2-4-内页锁线（针对锁线胶装书）" class="headerlink" title="2.4 内页锁线（针对锁线胶装书）"></a>2.4 内页锁线（针对锁线胶装书）</h3><ul><li><p>所需材料和设备：</p><ul><li>针、线</li></ul></li><li><p>注意事项：</p><ul><li>学习各种锁线技术</li></ul></li></ul><h3 id="2-4-书籍装胶"><a href="#2-4-书籍装胶" class="headerlink" title="2.4 书籍装胶"></a>2.4 书籍装胶</h3><ul><li><p>所需材料和设备：</p><ul><li>纱布</li><li>PVA胶水</li><li>刷子</li><li>压书板（需要自己制作）</li></ul></li><li><p>注意事项：</p><ul><li>在刷胶之前，需要对刷胶面进行增大接触面积的处理，比如弄些缺口；</li><li>在刷胶的时候需要在第一遍刷胶之后增加一层纱布，这样在翻页的时候能增加牵扯力；</li></ul></li></ul><h3 id="2-5-裁切"><a href="#2-5-裁切" class="headerlink" title="2.5 裁切"></a>2.5 裁切</h3><ul><li><p>所需材料和设备：</p><ul><li>重型裁剪机一台</li></ul></li><li><p>注意事项：</p><ul><li>之所以需要选用重型裁纸机，是因为打印的书籍可能比较厚，为了保证页面展示的整体化一性；</li></ul></li></ul><hr><h2 id="三、学习参考"><a href="#三、学习参考" class="headerlink" title="三、学习参考"></a>三、学习参考</h2><ul><li>Youtube上书籍制作（搜索关键字：book binding）；</li></ul>]]></content>
+    <content type="html"><![CDATA[<center><div style="width: 40%"><img src="/DIY/picture/【博文】指令集架构与CPU.png" alt="link"></div></center><a id="more"></a><h3 id="1-指令集架构"><a href="#1-指令集架构" class="headerlink" title="1. 指令集架构"></a>1. 指令集架构</h3><p>指令集架构（英语：Instruction Set Architecture，缩写为ISA），又称指令集或指令集体系，狭义理解是计算机体系结构中与程序设计有关的部分，包含了基本数据类型，指令集，寄存器，寻址模式，存储体系，中断，异常处理以及外部I/O。指令集架构包含一系列的opcode即操作码（机器语言），以及由特定处理器执行的基本命令。广义理解其包含了计算机组成（微架构）和硬件实现<br><br>建设一栋大楼的基本元素有：水泥、砖头、钢材等原材料，但不同的构造过程则会呈现不同的建筑形式，其中建造图纸起到了很大的指导作用。<br><br>同样， CPU从表象上看虽然形式很多，但基本电路都由晶体管构成，例如常见的MOS管。</p><center><div style="width: 30%"><img src="/DIY/picture/【博文】指令集架构与CPU丨指令集丨晶体管运行原理.png" alt="link"></div></center><p>通过晶体管等基本电子元器件的组合可构成基本的逻辑电路：如与门、非门、与非门等。</p><center><div style="width: 40%"><img src="/DIY/picture/【博文】指令集架构与CPU丨指令集丨门电路.png" alt="link"></div></center><p>这些基本逻辑电路通过不同的逻辑组合可分别完成不同的功能，就好比“把大象放进冰箱的段子”，首先打开冰箱门–&gt;然后把大象放进去–&gt;最后关上冰箱门。通过这些逻辑组合使动作具有了意义，而这些实现特定功能的逻辑组合集合就是指令集，如基本的加减运算。</p><p><b id="em">指令集是一个标准，其会随着需求变化不断添加新的指令或优化。同样，指令集发生变更后，工程师在设计CPU时也需要在硬件电路上增加对应的电路模块来支持变更的指令，配套的编译器也会随之升级。</b>我们在玩51、STM32等单片机时需要相应的编译器来实现相应程序开发就是这个道理。而在任何一款遵循同一指令集架构实现的处理器上，开发的应用无须做任何修改便可以运行。</p><h3 id="2-指令集架构的分类与CPU架构"><a href="#2-指令集架构的分类与CPU架构" class="headerlink" title="2. 指令集架构的分类与CPU架构"></a>2. 指令集架构的分类与CPU架构</h3><h4 id="2-1-分类"><a href="#2-1-分类" class="headerlink" title="2.1 分类"></a>2.1 分类</h4><center><div style="width: 60%"><img src="/DIY/picture/【博文】指令集架构与CPU丨指令集的分类.png" alt="link"></div></center><center><p id="picture">指令集架构分类<a id="download" href="/DIY/download/指令集的分类.xmind" download=""><i class="fa fa-download"></i></a></p></center><center><div style="width: 40%"><img src="/DIY/picture/【博文】指令集架构与CPU丨指三种主流架构对比.png" alt="link"></div></center><center><p id="picture">指三种主流架构对比</p></center><h4 id="2-2-为啥根据指令集设计CPU而不是先设计CPU再设计指令集？"><a href="#2-2-为啥根据指令集设计CPU而不是先设计CPU再设计指令集？" class="headerlink" title="2.2 为啥根据指令集设计CPU而不是先设计CPU再设计指令集？"></a>2.2 为啥根据指令集设计CPU而不是先设计CPU再设计指令集？</h4><p>设计一款CPU的过程就好比建房子，我们建房子肯定先要以一定的建设标准和规范为前提，依据一定的工程标准不仅使建设过程有序进行更重要的是最终能被验收和被大家所接受。这也类似于我们软件开发流程，必须先有需求再有开发，否则开发的软件都没有应用的场景。因此凭空设计一款CPU，首先会不会被厂商用另说，很多相应的配套也难以支持更何谈让软件开发人员进行开发和推广了。所以指令集作为一种标准规范，用于规范芯片设计工程师及编译器开发工程师。</p><center><div style="width: 40%"><img src="/DIY/picture/【博文】指令集架构与CPU丨根据指令集设计cpu和编译器.png" alt="link"></div></center><center><p id="picture">根据指令集设计cpu和编译器</p></center><p>因为芯片与集成开发环境-IDE都遵循相同的指令集标准，所以高级语言编写的程序经指定编译器编译后能直接运行在对应的CPU上，反之则不能运行。<br><br>所以，CPU在设计之前，就需要先设计一套指令集或者说使用现成的指令集(如ARM、X86指令集)并在硬件电路上实现这些指令。CPU设计好后，还需要配套的编译器，编译器也需要参考这个指令集标准，将我们编写的C程序、C++等程序编译成CPU硬件电路支持的加减乘除、与或非等指令，我们的程序才能在CPU上运行。</p><h3 id="3-指令集与编译器"><a href="#3-指令集与编译器" class="headerlink" title="3. 指令集与编译器"></a>3. 指令集与编译器</h3><p>无论处于上层的应用程序多么酷炫吊炸天，其在处理器上执行就必须被翻译成“机器语言”，然后通过0或1的排列组合去操作硬件实现功能。翻译官这个角色就是编译器的活，它将软件与硬件世界连接了起来。编译器在这个过程中，要经过编译、汇编、链接等几个步骤, 最后生成”可执行文件”，可执行文件中保存的是二进制机器码，这串机器码可以直接被CPU读取和执行。</p><center><div style="width: 40%"><img src="/DIY/picture/【博文】指令集架构与CPU丨指令集与编译器.png" alt="link"></div></center><p>上图表示在指令寄存器中正在执行的一段为00101110机器码，左四位0010为指令集LOAD_A（汇编代码，将数据放到寄存器A），右四位1110（RAM地址，就是要去取这个地址上的8bit 机器码数据放到寄存器A）。注意到0010这4bit数据先被放入一个门电路中，输出结果就是1bit（拉高电压），去控制内存读取这一条wire。这个图只突出显示了开启内存读取一条wire的原理，没有显示在这一步指令中所有门电路原理图。</p><h3 id="3-1-指令集与微架构"><a href="#3-1-指令集与微架构" class="headerlink" title="3.1 指令集与微架构"></a>3.1 指令集与微架构</h3><p>指令集体系与微架构（一套用于执行指令集的微处理器设计方法）不同。使用不同微架构的电脑可以共享一种指令集。例如，Intel的Pentium和AMD的AMD Athlon，两者几乎采用相同版本的x86指令集体系，但是两者在内部设计上有本质的区别。</p>]]></content>
     
     <summary type="html">
     
-      &lt;center&gt;&lt;div style=&quot;width: 50%&quot;&gt;&lt;img src=&quot;/DIY/picture/【博文】个人书籍制作（头图）.png&quot; alt=&quot;link&quot;&gt;&lt;/div&gt;&lt;/center&gt;
+      &lt;center&gt;&lt;div style=&quot;width: 40%&quot;&gt;&lt;img src=&quot;/DIY/picture/【博文】指令集架构与CPU.png&quot; alt=&quot;link&quot;&gt;&lt;/div&gt;&lt;/center&gt;
     
     </summary>
     
-      <category term="DIY" scheme="https://lego4language.github.io/categories/DIY/"/>
+      <category term="计算机基础" scheme="https://lego4language.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
     
+    
+      <category term="CPU" scheme="https://lego4language.github.io/tags/CPU/"/>
     
   </entry>
   
@@ -188,6 +190,26 @@
       <category term="数学" scheme="https://lego4language.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
     
       <category term="学习指导" scheme="https://lego4language.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%AF%BC/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>手工书籍制作</title>
+    <link href="https://lego4language.github.io/2021/09/06/%E6%89%8B%E5%B7%A5%E4%B9%A6%E7%B1%8D%E5%88%B6%E4%BD%9C/"/>
+    <id>https://lego4language.github.io/2021/09/06/手工书籍制作/</id>
+    <published>2021-09-05T16:00:00.000Z</published>
+    <updated>2022-10-18T01:19:07.568Z</updated>
+    
+    <content type="html"><![CDATA[<center><div style="width: 50%"><img src="/DIY/picture/【博文】个人书籍制作（头图）.png" alt="link"></div></center><a id="more"></a><h2 id="一、初衷与原由"><a href="#一、初衷与原由" class="headerlink" title="一、初衷与原由"></a>一、初衷与原由</h2><h3 id="1-1-原因"><a href="#1-1-原因" class="headerlink" title="1.1 原因"></a>1.1 原因</h3><ul><li><p>网点打印书虽然方便，但是很多地方自己并不满意，比如：</p><ul><li>打印纸张并不能自己决定；</li><li>装胶处理并不牢固，容易脱页；</li><li>书脊折痕并不清晰；</li><li>与打印店交流可能出现偏差；</li><li>…</li></ul></li><li><p>对于书籍的定制化自由度更大；</p></li><li>以后书籍出现问题能够自己修复；</li></ul><h3 id="1-2-目的"><a href="#1-2-目的" class="headerlink" title="1.2 目的"></a>1.2 目的</h3><ul><li>一方面是作为一个兴趣爱好来培养，增加生活乐趣，另一方面，个人认为自己动手将作为知识载体的书本精心地制作出来本身就是一件非常有意义的事，制作出来的书可以作为工艺品摆在家里，既起到了装饰作用，也让自己有一种成就感；</li><li>了解一门产业知识（印刷产业）；</li></ul><hr><h2 id="二、制作工序"><a href="#二、制作工序" class="headerlink" title="二、制作工序"></a>二、制作工序</h2><h3 id="2-1-设计封面、封底和书脊"><a href="#2-1-设计封面、封底和书脊" class="headerlink" title="2.1 设计封面、封底和书脊"></a>2.1 设计封面、封底和书脊</h3><h3 id="2-2-打印封面（包含封底、书脊）和内页"><a href="#2-2-打印封面（包含封底、书脊）和内页" class="headerlink" title="2.2 打印封面（包含封底、书脊）和内页"></a>2.2 打印封面（包含封底、书脊）和内页</h3><ul><li><p>所需材料和设备：</p><ul><li>道林纸、铜版纸</li><li>打印机一台</li></ul></li><li><p>制作过程：</p><ul><li>用打印机将封面和内页打印出来</li></ul></li><li><p>注意事项：</p><ul><li>打印机应该选择彩色喷墨打印机，理由如下：<ul><li>喷墨打印机在打印彩色图片时比激光打印机打印出来的颜色更靓丽，更鲜艳；</li><li>喷墨打印机技术根据原理又分为以爱普生、兄弟为代表的“微压电喷”技术和以惠普、佳能为代表的“热发泡”技术，各自优缺点如下：<ul><li>从打印效果来看，热发泡技术打印的图片颜色上会偏暖，而微压电喷会偏冷色调；</li><li>从成本来看，微压电喷的硬件不易损坏，但是一旦损坏，维修成本会很高，发热泡的喷头很容易出现堵塞等问题，但是相应的具有维护更换零部件，更易更换；</li></ul></li><li>喷墨打印机又分为4色和6色的，6色相对4色来说打印效果肯定更好，但是成本也更高；</li></ul></li><li>注意打印机参数和电子版设计参数是否相容，否则影响打印效果；</li></ul></li></ul><h3 id="2-3-封面铜版纸处理"><a href="#2-3-封面铜版纸处理" class="headerlink" title="2.3 封面铜版纸处理"></a>2.3 封面铜版纸处理</h3><ul><li><p>所需材料和设备：</p><ul><li>纸板（针对硬装书）</li><li>热、冷裱膜，各自优缺点<ul><li>热裱膜因为加热处理，贴合度更高，图片颜色更加靓丽，但是工艺复杂；</li><li>冷裱膜直接贴合虽然操作方便，但是容易起泡，图片效果相对较差；</li></ul></li><li>覆膜机一台</li><li>压痕机一台</li></ul></li><li><p>制作过程：</p><ul><li>用覆膜机将铜版纸封面覆膜；</li><li>在封面上做出折痕；</li><li>将封面站在纸板上（硬装书需要）</li></ul></li></ul><ul><li>注意事项：<ul><li>覆膜之后再压痕，压痕机并不是必要的，可以使用压板手动压，不过还是看做出来的效果之后再决定是否需要压痕机；</li></ul></li></ul><h3 id="2-4-内页锁线（针对锁线胶装书）"><a href="#2-4-内页锁线（针对锁线胶装书）" class="headerlink" title="2.4 内页锁线（针对锁线胶装书）"></a>2.4 内页锁线（针对锁线胶装书）</h3><ul><li><p>所需材料和设备：</p><ul><li>针、线</li></ul></li><li><p>注意事项：</p><ul><li>学习各种锁线技术</li></ul></li></ul><h3 id="2-4-书籍装胶"><a href="#2-4-书籍装胶" class="headerlink" title="2.4 书籍装胶"></a>2.4 书籍装胶</h3><ul><li><p>所需材料和设备：</p><ul><li>纱布</li><li>PVA胶水</li><li>刷子</li><li>压书板（需要自己制作）</li></ul></li><li><p>注意事项：</p><ul><li>在刷胶之前，需要对刷胶面进行增大接触面积的处理，比如弄些缺口；</li><li>在刷胶的时候需要在第一遍刷胶之后增加一层纱布，这样在翻页的时候能增加牵扯力；</li></ul></li></ul><h3 id="2-5-裁切"><a href="#2-5-裁切" class="headerlink" title="2.5 裁切"></a>2.5 裁切</h3><ul><li><p>所需材料和设备：</p><ul><li>重型裁剪机一台</li></ul></li><li><p>注意事项：</p><ul><li>之所以需要选用重型裁纸机，是因为打印的书籍可能比较厚，为了保证页面展示的整体化一性；</li></ul></li></ul><hr><h2 id="三、学习参考"><a href="#三、学习参考" class="headerlink" title="三、学习参考"></a>三、学习参考</h2><ul><li>Youtube上书籍制作（搜索关键字：book binding）；</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;center&gt;&lt;div style=&quot;width: 50%&quot;&gt;&lt;img src=&quot;/DIY/picture/【博文】个人书籍制作（头图）.png&quot; alt=&quot;link&quot;&gt;&lt;/div&gt;&lt;/center&gt;
+    
+    </summary>
+    
+      <category term="DIY" scheme="https://lego4language.github.io/categories/DIY/"/>
     
     
   </entry>
@@ -426,28 +448,6 @@
     <summary type="html">
     
       &lt;center&gt;&lt;div style=&quot;width: 23%&quot;&gt;&lt;img src=&quot;/DIY/picture/【博文】数学中未解决的大问题（头图）.png&quot; alt=&quot;link&quot;&gt;&lt;/div&gt;&lt;/center&gt;
-    
-    </summary>
-    
-      <category term="数学" scheme="https://lego4language.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
-    
-      <category term="学科理解" scheme="https://lego4language.github.io/categories/%E6%95%B0%E5%AD%A6/%E5%AD%A6%E7%A7%91%E7%90%86%E8%A7%A3/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>现代数学各子领域关系的简单介绍和学习建议</title>
-    <link href="https://lego4language.github.io/2021/03/16/%E7%8E%B0%E4%BB%A3%E6%95%B0%E5%AD%A6%E5%90%84%E5%AD%90%E9%A2%86%E5%9F%9F%E5%85%B3%E7%B3%BB%E7%9A%84%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://lego4language.github.io/2021/03/16/现代数学各子领域关系的简单介绍/</id>
-    <published>2021-03-15T16:00:00.000Z</published>
-    <updated>2022-07-07T01:27:59.989Z</updated>
-    
-    <content type="html"><![CDATA[<center><div style="width: 50%"><img src="/DIY/picture/【博文】现代数学各子领域关系的简单介绍（头图）.png" alt="link"></div></center><a id="more"></a><p><a href="https://www.zhihu.com/people/yuhang-liu-34/posts?page=2" target="_blank" rel="noopener">原链接</a></p><p>这篇文章是写给对本科以上层次的数学感兴趣但还未入门的初学者的，数学圈的人随便看看就行了，没什么“硬”的东西，闲聊而已。<br><br>很多人都听说过“现代数学分成代数、分析、几何”三大块这种说法。其实这种说法并不准确。数学并不是像生物学分类那样，按照界门纲目科属种那样能够严格地分出不同层次的分界线。现代数学不同领域的差异当然存在，但是这些领域的边界线则犬牙交错，交叉的地方并不清晰。而且某个领域使用其他领域的方法和定理也是很常见的事情。<br><br>那么，我们首先简单介绍一下三大方法论大致是个什么“取向”，给对数学有兴趣的初学者一点感觉。<br><br><b id="em">【代数】—— 以线性代数、抽象代数为基础，研究各种代数结构，比如最常见的群环模域线性空间，李代数，以及不那么常见的高阶同伦代数（homotopy algebra）等等。代数的一个基本特征是对称性。一般来说，某个数学对象（比如说拓扑空间）如果具备某种代数结构（比如拓扑空间上面有同调群），那我们就可以利用这种代数结构的已知结果，来反过来研究、“探测”那个数学对象。这是代数影响其他数学分支的一个基本模式。<br><br>【分析】—— 以广义的微积分（比如实分析复分析调和分析等等）、微分方程理论、泛函分析等为研究工具，对函数、方程等“可以求导”的东西进行精细的分析（比如不等式估计等等），的一种方法论。分析大致可以分为软分析和硬分析。个人的观点是，软分析有点像定性的分析，比如泛函分析里各种结论，比如一个函数空间紧嵌入到另一个函数里，不需要知道到底怎么嵌入的，就可以依据紧性推导出一些结论。而硬分析则有点像定量的分析：每个常数，跟哪些量有关，具体是怎么个相关法（多项式依赖？指数依赖）？这些常数具体是多少，能不能做到最优，最优常数是多少？用一列东西去逼近一个东西，误差项大概有多大？误差项是什么阶数（多项式（几次多项式？）？多项式乘以对数？）？能不能把bound放大或者缩小，直至最优？ etc.<br><br>【几何与拓扑】—— 主要关注几何对象与拓扑对象。几何与拓扑的区别在于，拓扑比几何更“软”，更flexible，几何是在拓扑空间上加额外的结构（度量结构、复结构、辛结构，或者这种结构的“组合结构”，比如Kahler结构，等等）。拓扑关注的一个重要对象是拓扑不变量，比如同调上同调、同伦群、K理论等等。几何可极粗略地分为微分几何与代数几何——微分几何主要关心曲率等，代数几何主要关注代数簇、scheme等等的各种“代数性质”（“代数”这个形容词可以粗略理解为只跟多项式有关）以及我不懂的各种东西（这个话题抱歉我没法聊，懂的太少。。）。<br></b><br>当然除此以外还有其他一些方法论，比如概率论（其实可以放在广义的分析框架里面，但是研究的方法、看待问题的角度还是有独特的地方）、组合、数理逻辑等等。<br><br>我一开始说三大方法论不是完全分割的，相互之间互有联系，下面举一些例子来说明。<br><br>分析里面的代数：有些人可能觉得分析就是搞搞不等式估计、求求导积个分什么的，用不到多少代数。其实也不一定。PDE很多时候都有对称性，这些对称性很多时候能简化问题。（李当初发明李代数的目的可是拿来解微分方程的，他想用李代数来刻画方程内在的infinitesimal symmetry）。调和分析自然地和表示论有联系。另外再说一件事。我在本系听deformation theory seminar的时候，有个人讲到PDE里面蕴含了一些homotopy algebra的结构，然后他做了一些对这种代数结构的研究。目前有价值的PDE基本都来自于“大自然”，比如来自物理或者来自几何。这些被大自然挑选出来的方程，里面可能本身就蕴含了一些内在的结构，使得他们相对于人类随便乱写的一个方程更容易处理。<br><br>几何里面的代数：代数几何当然和代数有深刻的联系。这方面就举一个例子，Kodaira embedding theorem. Kodaira embedding是从Kodaira vanishing＋指标定理（HRR） 推出来的，Kodaira vanishing是说positive line bundle做某种twist以后的高阶上同调全部为0，算是一个（同调）代数结论。Kodaira embedding是说对紧Kahler流形，positive line bundle和ample line bundle是一回事，而ample line bundle能把这个流形嵌入到某个CP^N里面，算是一个几何结论。这就是一个“同调代数应用于几何学”的例子。<br><br>微分几何里面也有代数。微分几何里面holonomy group之类的东西和李群、表示论都有着千丝万缕的联系，spin structure，Clifford algebra这些东西都算是代数的方法论应用于几何学（以及拓扑学）。<br><br>代数里面的几何：纯代数里面很多东西都可以翻译成代数几何的语言。比如Galois theory可以翻译成代数几何里面的etale cover（具体是什么不要问我，我就随便一说）。<br><br>代数里面的分析：比如p-adic analysis，差不多是模仿复分析的方法，在p-adic field上做分析。另外我们有著名的GAGA原理，复代数几何和复微分几何某种意义上可以看成用不同的方法论研究同一个对象，很多时候能得到相同的结果。<br><br>OK，说了这么多，该去睡了。。最后再说一句：数学专业的低年级本科生们，如果以后打算做数学研究的话，学专业课的时候不要抱着“我以后做代数所以不需要认真学分析”或者“我以后学分析所以没必要好好学抽代”之类的想法。在力所能及的范围内，尽量多学点东西。本科那些知识，都是各个分支的common knowledge，你现在可能觉得某些知识和你感兴趣的东西毫不相干，但也许以后你学得更深入的时候，它们就突然出现了。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;center&gt;&lt;div style=&quot;width: 50%&quot;&gt;&lt;img src=&quot;/DIY/picture/【博文】现代数学各子领域关系的简单介绍（头图）.png&quot; alt=&quot;link&quot;&gt;&lt;/div&gt;&lt;/center&gt;
     
     </summary>
     
