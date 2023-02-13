@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://lego4language.github.io/"/>
-  <updated>2023-01-20T03:12:18.543Z</updated>
+  <updated>2023-02-03T01:07:48.148Z</updated>
   <id>https://lego4language.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>编译器初步学习</title>
+    <title>编译器学习</title>
     <link href="https://lego4language.github.io/2023/01/20/%E7%BC%96%E8%AF%91%E5%99%A8%E5%88%9D%E6%AD%A5%E5%AD%A6%E4%B9%A0/"/>
     <id>https://lego4language.github.io/2023/01/20/编译器初步学习/</id>
     <published>2023-01-19T16:00:00.000Z</published>
-    <updated>2023-01-20T03:12:18.543Z</updated>
+    <updated>2023-02-03T01:07:48.148Z</updated>
     
     <content type="html"><![CDATA[<p><img src="/DIY/picture/【博文】编译器初步学习（头图）.png" alt="link"></p><a id="more"></a><h4 id="1-概念"><a href="#1-概念" class="headerlink" title="1. 概念"></a>1. 概念</h4><p>编译器：将源码（source program）作为输入，翻译产生目标语言（target language）的等价程序。源代码一般为高阶语言（High-level language），如Pascal、C、C++、C#、Java等，而目标语言则是汇编语言或目标机器的目标代码（Object code），有时也称作机器代码。</p><h4 id="2-几种翻译器的区别与联系"><a href="#2-几种翻译器的区别与联系" class="headerlink" title="2. 几种翻译器的区别与联系"></a>2. 几种翻译器的区别与联系</h4><h4 id="3-程序工作流程"><a href="#3-程序工作流程" class="headerlink" title="3. 程序工作流程"></a>3. 程序工作流程</h4><h5 id="3-1-C程序执行流程"><a href="#3-1-C程序执行流程" class="headerlink" title="3.1 C程序执行流程"></a>3.1 C程序执行流程</h5><center><div style="width: 60%"><img src="/DIY/picture/【学科丨数学】C语言执行流程.png" alt="link"></div></center><br><center><p id="picture">C语言执行流程<a id="download" href="/DIY/download/【学科丨数学】C语言执行流程.eddx" download=""><i class="fa fa-download"></i></a></p></center><h5 id="3-2-编译器执行流程"><a href="#3-2-编译器执行流程" class="headerlink" title="3.2 编译器执行流程"></a>3.2 编译器执行流程</h5><h4 id="4-编译器种类"><a href="#4-编译器种类" class="headerlink" title="4. 编译器种类"></a>4. 编译器种类</h4><p>C语言的编译器有很多种，不同的平台下有不同的编译器，例如：</p><ul><li>Windows 下常用的是微软编译器（cl.exr），它被集成在 Visual Studio 或 Visual C++ 中，一般不单独使用；</li><li>Linux 下常用的是 GUN 组织开发的 GCC，很多 Linux 发行版都自带 GCC；</li><li>Mac 下常用的是 LLVM/Clang，它被集成在 Xcode 中（Xcode 以前集成的是 GCC，后来由于 GCC 的不配合才改为 LLVM/Clang，LLVM/Clang 的性能比 GCC 更加强大）</li></ul><h4 id="5-1-学习资源"><a href="#5-1-学习资源" class="headerlink" title="5.1 学习资源"></a>5.1 学习资源</h4><p>书籍：<br>- </p>]]></content>
     
